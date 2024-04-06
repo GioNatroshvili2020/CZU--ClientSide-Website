@@ -1,22 +1,17 @@
 <?php
 
-// Change directory to the directory of the script
-chdir(__DIR__);
+// Command to run the gitSync.sh script
+$command = 'bash gitSync.sh';
 
-// Execute git fetch
+// Execute the command and capture output
 $output = [];
-$fetchResult = exec('git fetch', $output, $fetchStatus);
+$status = null;
+exec($command, $output, $status);
 
-// Output fetch result
-echo "Git Fetch Result:\n";
-echo implode("\n", $output) . "\n";
-echo "Fetch Status: $fetchStatus\n";
-
-// Execute git pull
-$output = [];
-$pullResult = exec('git pull', $output, $pullStatus);
-
-// Output pull result
-echo "\nGit Pull Result:\n";
-echo implode("\n", $output) . "\n";
-echo "Pull Status: $pullStatus\n";
+// Output the result
+echo "Command: $command\n";
+echo "Output:\n";
+foreach ($output as $line) {
+    echo $line . "\n";
+}
+echo "Status: $status\n";
