@@ -32,9 +32,8 @@ while true; do
         delete_files
         fetch_and_pull
         delete_directory
-        break  # Exit the loop after deleting the directory
     else
-        echo "Directory '$dir_to_monitor' does not exist."
+        echo "monitoring changes..."
     fi
-    sleep 10  # Adjust the sleep duration as needed
+    sleep 2  # Adjust the sleep duration as needed
 done
