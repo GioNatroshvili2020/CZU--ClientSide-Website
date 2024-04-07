@@ -4,11 +4,15 @@ $tour_name = $_GET['name'];
 $tour_description = $_GET['description'];
 $tour_image = $_GET['image'];
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Head content -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="public/sass/style.css">
+    <!-- Include any other necessary CSS or scripts here -->
 </head>
 <body>
     <!-- Tour Details Content -->
