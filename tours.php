@@ -40,11 +40,14 @@
                 $row = $result->fetch_assoc();
                 if ($result->num_rows > 0) {
                     $row = $result->fetch_assoc();
+                    
                     echo 'reituzi sadaa bliad';
+                    echo json_encode($row);
+
                     //echo $row['name']; 
-                    foreach ($row as $columnName => $value) {
-                        echo $columnName . ": " . $value . "<br>";
-                    }
+                    // foreach ($row as $columnName => $value) {
+                    //     echo $columnName . ": " . $value . "<br>";
+                    // }
                 } else {
                     echo "No rows found";
                 }
