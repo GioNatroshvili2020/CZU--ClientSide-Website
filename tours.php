@@ -38,16 +38,14 @@
                 $sql="SELECT * FROM Test";
                 $result = $conn->query($sql);
                 $row = $result->fetch_assoc();
-                if ($result->num_rows > 0) {
-                    $row = $result->fetch_assoc();
-                    
-                    echo 'reituzi sadaa bliad';
-                    echo json_encode($row);
+                echo 'reituzi sadaa bliad';
 
-                    //echo $row['name']; 
-                    // foreach ($row as $columnName => $value) {
-                    //     echo $columnName . ": " . $value . "<br>";
-                    // }
+                if ($result->num_rows > 0) {
+                    while ($row = $selectRecordsResult->fetch_assoc()) {
+                        echo $row['name'];
+                    }                    
+
+                 
                 } else {
                     echo "No rows found";
                 }
