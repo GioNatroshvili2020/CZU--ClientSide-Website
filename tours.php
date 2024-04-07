@@ -30,7 +30,13 @@
             <div class="main-container">
                 <?php
                 include_once 'config.php';
+                $conn = new mysqli($servername, $username, $password, $dbname);
 
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+                
                 //Fetch tour data from the database
                 $sql = "SELECT name, description, image FROM Tours";
                 $result = $conn->query($sql);
