@@ -1103,3 +1103,12 @@ footer {
   justify-content: center; /* Center horizontally */
   margin-top: 20px; /* Adjust margin as needed */
 }
+
+.txt-position-tour-detail {
+  max-width: 400px; /* Limiting maximum width */
+  margin-left: auto; /* Aligning text to the right side */
+}
+
+.txt-position-tour-detail p {
+  text-align: left; /* Aligning text to the left within the container */
+}

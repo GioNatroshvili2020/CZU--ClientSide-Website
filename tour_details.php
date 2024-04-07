@@ -32,7 +32,7 @@ $tour_image = $_GET['image'];
             </div>
 
         </div>
-        <div class="txt-position">
+        <div class="txt-position-tour-detail">
             <p class="input-info">
                 <?php echo $tour_description; ?>
             </p>
