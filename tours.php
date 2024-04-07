@@ -65,8 +65,8 @@
                         echo '<span>View Route Map</span>';
                         echo '</a>';
                         echo '<div class="price">';
-                        echo '<p>$450 <span>Per person</span></p>';
-                        echo '<h2>3 Days 2 Nights</h2>';
+                        echo '<p>$' . $row["price"] . ' <span>Per person</span></p>';
+                        echo '<h2>' . $row["duration"] . ' Days</h2>';
                         echo '</div>';
                         echo '</div>';
                         echo '</div>';
