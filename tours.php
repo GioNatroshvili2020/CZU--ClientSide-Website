@@ -27,28 +27,54 @@
             <div class="main-container">
                 <?php
                 include_once 'config.php';
-                // Connect to your database     
+                
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
                 // Check connection
                 if ($conn->connect_error) {
-                    echo 'fucked up';
                     die("Connection failed: " . $conn->connect_error);
                 }
-                $sql="SELECT * FROM Test";
-                $result = $conn->query($sql);
-                $row = $result->fetch_assoc();
-                echo 'reituzi sadaa bliad';
-
-                if ($result->num_rows > 0) {
-                    while ($row = $selectRecordsResult->fetch_assoc()) {
-                        echo $row['name'];
-                    }                    
-
-                 
+                
+                // Check if the table exists
+                $tableName = 'Test';
+                $tableExistsQuery = "SHOW TABLES LIKE '$tableName'";
+                $tableExistsResult = $conn->query($tableExistsQuery);
+                
+                if ($tableExistsResult->num_rows > 0) {
+                    // Table exists
+                    echo "Table '$tableName' exists.<br>";
+                
+                    // Check if there are any records in the table
+                    $countRecordsQuery = "SELECT COUNT(*) as count FROM $tableName";
+                    $countRecordsResult = $conn->query($countRecordsQuery);
+                
+                    if ($countRecordsResult) {
+                        $row = $countRecordsResult->fetch_assoc();
+                        $recordCount = $row['count'];
+                        echo "Number of records in '$tableName': $recordCount<br>";
+                
+                        // If there are records, print them
+                        if ($recordCount > 0) {
+                            $selectRecordsQuery = "SELECT * FROM $tableName";
+                            $selectRecordsResult = $conn->query($selectRecordsQuery);
+                
+                            if ($selectRecordsResult->num_rows > 0) {
+                                echo "Records:<br>";
+                                while ($row = $selectRecordsResult->fetch_assoc()) {
+                                    echo $row['name'] . "<br>";
+                                }
+                            } else {
+                                echo "No records found in '$tableName'.<br>";
+                            }
+                        }
+                    } else {
+                        echo "Error retrieving record count.<br>";
+                    }
                 } else {
-                    echo "No rows found";
+                    echo "Table '$tableName' does not exist.<br>";
                 }
+                
+                $conn->close();
                 // Fetch tour data from the database
                 // $sql = "SELECT name, description, image FROM tours";
                 // $result = $conn->query($sql);
@@ -85,7 +111,7 @@
                 // } else {
                 //     echo "0 results";
                 // }
-                $conn->close();
+                //$conn->close();
                 ?>
             </div>
             <div class="individual-tours">
