@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Directory to monitor
-dir_to_monitor="changes"
+dir_to_monitor="pendingChanges"
 
 # Function to delete files in the directory
 delete_files() {
