@@ -53,42 +53,48 @@
         <p>This place amazes with its fabulous atmosphere and nature</p>
       </div>
       <div class="main-container">
-        <a href="#" onclick="showSection('section1')">
+        <?php
+ include_once 'config.php';
+ $connection = new mysqli($servername, $username, $password, $dbname);
+
+ // Check connection
+ if ($connection->connect_error) {
+     die("Connection failed: " . $connection->connect_error);
+ }
+
+  $query = "SELECT * FROM Sights";
+  $result = mysqli_query($connection, $query);
+
+  if (mysqli_num_rows($result) > 0) {
+      while ($row = mysqli_fetch_assoc($result)) {
+          $name = $row['name'];
+          $info = $row['info'];
+          $imageUrl = $row['imageUrl'];
+  ?>
+        <a href="#" onclick="showSection('<?php echo $name; ?>')">
           <div class="image-box image-1">
-            <img src="https://www.caucasus-trekking.com/Images/Treks/Gveleti/Fullscreen/08_Waterfall.JPG"
-              alt="Enchanting Waterfall" />
+            <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
             <div class="overlay"></div>
             <div class="image-box-text">
-              <h2>Waterfall</h2>
-              <p>Enchanting Waterfall</p>
+              <h2>
+                <?php echo $name; ?>
+              </h2>
+              <p>
+                <?php echo $info; ?>
+              </p>
             </div>
           </div>
         </a>
-        <a href="#" onclick="showSection('section2')">
-          <div class="image-box image-1">
-            <img
-              src="https://images.unsplash.com/photo-1662901984749-0d34b7a39b6f?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Gergeti Trinity Church" />
-            <div class="overlay"></div>
-            <div class="image-box-text">
-              <h2>Gergeti Trinity</h2>
-              <p>Built in 14th Century</p>
-            </div>
-          </div>
-        </a>
-        <a href="#" onclick="showSection('section3')">
-          <div class="image-box image-1">
-            <img
-              src="https://www.goingthewholehogg.com/wp-content/uploads/Kelitsadi-Lake-Landscape-Kazbegi-Georgia-M.jpg"
-              alt="Kelitsadi Lake" />
-            <div class="overlay"></div>
-            <div class="image-box-text">
-              <h2>Kelitsadi Lake</h2>
-              <p>Built in 14th Century</p>
-            </div>
-          </div>
-        </a>
+        <?php
+      }
+  } else {
+      echo "No sights found.";
+  }
+
+  mysqli_close($connection);
+  ?>
       </div>
+
     </section>
 
     <section class="about h-entry" id="about">
