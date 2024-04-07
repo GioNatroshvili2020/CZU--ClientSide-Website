@@ -57,7 +57,7 @@
         </div>
         <div class="main-container">
           <!-- // card 1 -->
-          <div class="tour-cards">
+          <div class="tour-cards" data-name="Caucasus Mountains" data-description="Trekking in the high Caucasus Mountains of Georgia..." data-image="https://mountainfreaks.ge/wp-content/uploads/2017/12/DSC0514.jpg">
             <div class="image-box">
               <img
                 src="https://mountainfreaks.ge/wp-content/uploads/2017/12/DSC0514.jpg"
@@ -300,4 +300,24 @@
 
     <script src="public/js/main.js"></script>
   </body>
+
+  <script>
+    // Get all tour cards
+    const tourCards = document.querySelectorAll('.tour-cards');
+
+    // Loop through each tour card
+    tourCards.forEach(card => {
+        // Add click event listener
+        card.addEventListener('click', function() {
+            // Get tour details from data attributes
+            const name = this.getAttribute('data-name');
+            const description = this.getAttribute('data-description');
+            const image = this.getAttribute('data-image');
+
+            // Redirect to tour details page with URL parameters
+            window.location.href = `tour_details.php?name=${encodeURIComponent(name)}&description=${encodeURIComponent(description)}&image=${encodeURIComponent(image)}`;
+        });
+    });
+</script>
+
 </html>
