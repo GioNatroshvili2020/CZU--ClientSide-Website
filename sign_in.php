@@ -31,10 +31,11 @@
             <div class="navbar" role="navigation">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="sights.php">Sights</a></li>
+                    <li><a href="sights.html">Sights</a></li>
                     <li><a href="footage.html">Footage</a></li>
                     <li><a href="tours.php">Tours</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li><a href="signin.html">Sign In</a></li> <!-- Added Sign In item -->
                 </ul>
             </div>
             <div class="ham-menu">
@@ -60,7 +61,10 @@
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password" placeholder="Enter your password" />
                     </div>
-                    <button class="btn-send">Sign In</button>
+                    <div class="buttons"> <!-- Added div for buttons -->
+                        <button class="btn-send">Sign In</button>
+                        <a href="signup.html" class="btn-signup">Sign Up</a> <!-- Added Sign Up button -->
+                    </div>
                 </form>
             </div>
         </section>
