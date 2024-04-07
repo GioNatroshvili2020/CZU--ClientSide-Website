@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,7 +9,9 @@
     <link rel="shortcut icon" href="public/images/logo/mountain-fav.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
     <!-- css -->
     <link rel="stylesheet" href="public/sass/style.css" />
 </head>
@@ -27,58 +30,34 @@
             <div class="main-container">
                 <?php
                 include_once 'config.php';
-                
+
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
                 // Check connection
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-                
+
                 // Check if the table exists
                 $tableName = 'Test';
-                $tableExistsQuery = "SHOW TABLES LIKE '$tableName'";
-                $tableExistsResult = $conn->query($tableExistsQuery);
-                
-                if ($tableExistsResult->num_rows > 0) {
-                    // Table exists
-                    echo "Table '$tableName' exists.<br>";
-                
-                    // Check if there are any records in the table
-                    $countRecordsQuery = "SELECT COUNT(*) as count FROM $tableName";
-                    $countRecordsResult = $conn->query($countRecordsQuery);
-                
-                    if ($countRecordsResult) {
-                        $row = $countRecordsResult->fetch_assoc();
-                        $recordCount = $row['count'];
-                        echo "Number of records in '$tableName': $recordCount<br>";
-                
-                        // If there are records, print them
-                        if ($recordCount > 0) {
-                            $selectRecordsQuery = "SELECT * FROM $tableName";
-                            $selectRecordsResult = $conn->query($selectRecordsQuery);
-                
-                            if ($selectRecordsResult->num_rows > 0) {
-                                echo "Records:<br>";
-                                while ($row = $selectRecordsResult->fetch_assoc()) {
-                                    echo $row['name'] . "<br>";
-                                }
-                            } else {
-                                echo "No records found in '$tableName'.<br>";
-                            }
-                        }
-                    } else {
-                        echo "Error retrieving record count.<br>";
+
+                $selectRecordsQuery = "SELECT * FROM $tableName";
+                $selectRecordsResult = $conn->query($selectRecordsQuery);
+
+                if ($selectRecordsResult->num_rows > 0) {
+                    echo "Records:<br>";
+                    while ($row = $selectRecordsResult->fetch_assoc()) {
+                        echo $row['name'] . "<br>";
                     }
                 } else {
-                    echo "Table '$tableName' does not exist.<br>";
+                    echo "No records found in '$tableName'.<br>";
                 }
-                
+
                 $conn->close();
                 // Fetch tour data from the database
                 // $sql = "SELECT name, description, image FROM tours";
                 // $result = $conn->query($sql);
-
+                
                 // if ($result->num_rows > 0) {
                 //     // Output data of each row
                 //     while ($row = $result->fetch_assoc()) {
@@ -126,4 +105,5 @@
 
     <script src="public/js/main.js"></script>
 </body>
+
 </html>
