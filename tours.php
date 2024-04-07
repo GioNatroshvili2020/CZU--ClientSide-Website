@@ -52,7 +52,6 @@
                         echo '<div class="overlay"></div>';
                         echo '<div class="image-box-text">';
                         echo '<h2>' . $row["name"] . '</h2>';
-                        echo '<p>' . $row["description"] . '</p>';
                         echo '</div>';
                         echo '</div>';
                         echo '<div class="tour-cards-text">';
