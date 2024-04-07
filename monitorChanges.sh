@@ -6,7 +6,6 @@ dir_to_monitor="pendingChanges"
 # Function to delete files in the directory
 delete_files() {
     if [ "$(ls -A $dir_to_monitor)" ]; then
-        echo "Deleting files in $dir_to_monitor..."
         rm -rf $dir_to_monitor/*
     fi
 }
@@ -15,14 +14,12 @@ delete_files() {
 fetch_and_pull() {
     echo "Fetching changes from remote repository..."
     git fetch
-
     echo "Pulling changes from remote repository..."
     git pull
 }
 
 # Function to delete the directory
-delete_directory() {
-    echo "Deleting directory '$dir_to_monitor'..."
+delete_directory() {    
     rm -rf $dir_to_monitor
 }
 
@@ -32,8 +29,6 @@ while true; do
         delete_files
         fetch_and_pull
         delete_directory
-    else
-        echo "monitoring changes..."
     fi
     sleep 2  # Adjust the sleep duration as needed
 done
