@@ -909,4 +909,26 @@ footer .credit a {
   width: 300px;
 }
 
+.img-position2 {
+  z-index: -1;
+  height: 800px;
+  width: 600px;
+}
+
+.book-tour {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
+.txt-position-tour-detail {
+  max-width: 400px; /* Limiting maximum width */
+  margin-left: auto; /* Aligning text to the right side */
+  margin-right: auto;
+}
+
+.txt-position-tour-detail p {
+  text-align: left; /* Aligning text to the left within the container */
+}
+
 /*# sourceMappingURL=style.css.map */

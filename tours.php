@@ -95,7 +95,7 @@
                 ?>
             </div>
             <div class="individual-tours">
-                <a href="">Contact us</a> for Individual Tours
+                <a href="contact.html">Contact us</a> for Individual Tours
             </div>
         </section>
     </main>
