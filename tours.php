@@ -14,7 +14,6 @@
 </head>
 
 <body>
-    <div id="preloadder" role="status" aria-live="polite"></div>
 
     <header class="primary-header" role="banner">
         <!-- Header Content -->
@@ -28,7 +27,8 @@
             <div class="main-container">
                 <?php
                 include_once 'config.php';
-                // Connect to your database            
+                // Connect to your database     
+                echo $servername . $username . $password . $dbname;       
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
                 // Check connection
