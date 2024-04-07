@@ -38,7 +38,7 @@
                 }
                 
                 //Fetch tour data from the database
-                $sql = "SELECT name, description, image FROM Tours";
+                $sql = "SELECT * FROM Tours";
                 $result = $conn->query($sql);
                 
                 if ($result->num_rows > 0) {
