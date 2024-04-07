@@ -17,9 +17,33 @@
 </head>
 
 <body>
+    <div id="preloadder" role="status" aria-live="polite"></div>
 
     <header class="primary-header" role="banner">
-        <!-- Header Content -->
+        <div class="left-part">
+            <a href="index.html" aria-label="Go to Home Page">
+                <img src="public/images/logo/mountain.png" alt="Kazbegi Logo" />
+                <div class="logo">
+                    <h1>Kazbegi</h1>
+                </div>
+            </a>
+        </div>
+        <div class="right-part">
+            <div class="navbar" role="navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="sights.html">Sights</a></li>
+                    <li><a href="footage.html">Footage</a></li>
+                    <li><a class="active" href="tours.html">Tours</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="ham-menu">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+            </div>
+        </div>
     </header>
 
     <main role="main">
@@ -36,16 +60,16 @@
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-                
+
                 //Fetch tour data from the database
                 $sql = "SELECT * FROM Tours";
                 $result = $conn->query($sql);
-                
+
                 if ($result->num_rows > 0) {
                     // Output data of each row
                     while ($row = $result->fetch_assoc()) {
                         //echo json_encode($row); // for debugging
-
+                
                         echo '<div class="tour-cards" data-name="' . $row["name"] . '" data-description="' . $row["description"] . '" data-image="' . $row["image"] . '">';
                         echo '<div class="image-box">';
                         echo '<img src="' . $row["image"] . '" alt="' . $row["name"] . '" />';
