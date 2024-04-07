@@ -33,6 +33,7 @@
 
                 // Check connection
                 if ($conn->connect_error) {
+                    echo 'fucked up';
                     die("Connection failed: " . $conn->connect_error);
                 }
                 $sql="SELECT * FROM Test";
