@@ -40,6 +40,7 @@
                 $row = $result->fetch_assoc();
                 if ($result->num_rows > 0) {
                     $row = $result->fetch_assoc();
+                    echo 'reituzi sadaa bliad';
                     echo $row['name']; // Replace 'column_name' with the actual name of the column you want to echo
                 } else {
                     echo "No rows found";
