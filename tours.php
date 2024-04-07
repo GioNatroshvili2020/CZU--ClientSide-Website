@@ -79,12 +79,14 @@
                         echo '</div>';
                         echo '</div>';
                         echo '<div class="tour-cards-text">';
+                        echo '<a href="tour_details.php?name=' . urlencode($row["name"]) . '&description=' . urlencode($row["description"]) . '&image=' . urlencode($row["image"]) . '">';
                         echo '<h1>' . $row["name"] . '</h1>';
+                        echo '</a>';
                         echo '<p>' . $row["description"] . '</p>';
                         echo '<a href="tour_details.php?name=' . urlencode($row["name"]) . '&description=' . urlencode($row["description"]) . '&image=' . urlencode($row["image"]) . '" class="btn-map">View Details</a>';
                         echo '</div>';
                         echo '</div>';
-                    }
+                    }                    
                     
                 } else {
                     echo "0 results";
