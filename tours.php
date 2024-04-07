@@ -29,7 +29,7 @@
                 include_once 'config.php';
                 // Connect to your database     
                 echo $servername ." ". $username ." ". $password ." ". $dbname."viris yle ";       
-                $conn = new mysqli($servername, $username, $password, $dbname);
+                //$conn = new mysqli($servername, $username, $password, $dbname);
 
                 // // Check connection
                 // if ($conn->connect_error) {
@@ -81,7 +81,7 @@
                 // } else {
                 //     echo "0 results";
                 // }
-                $conn->close();
+                //$conn->close();
                 ?>
             </div>
             <div class="individual-tours">
