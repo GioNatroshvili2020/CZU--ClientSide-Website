@@ -21,7 +21,7 @@ $tour_image = $_GET['image'];
 <body>
     <!-- Tour Details Content -->
     <section class="explore h-entry" id="section1">
-        <div class="image-box image-1 img-position">
+        <div class="image-box img-position2">
             <img src="<?php echo $tour_image; ?>" alt="<?php echo $tour_name; ?>">
 
             <div class="overlay"></div>

@@ -909,6 +909,12 @@ footer .credit a {
   width: 300px;
 }
 
+.img-position2 {
+  z-index: -1;
+  height: 800px;
+  width: 600px;
+}
+
 .book-tour {
   display: flex;
   justify-content: center; /* Center horizontally */
