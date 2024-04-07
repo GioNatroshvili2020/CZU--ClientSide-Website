@@ -28,23 +28,23 @@
                 <?php
                 include_once 'config.php';
                 // Connect to your database     
-                echo $servername . $username . $password . $dbname;       
+                echo $servername ." ". $username ." ". $password ." ". $dbname."viris yle ";       
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
-                // Check connection
-                if ($conn->connect_error) {
-                    echo 'fucked up';
-                    die("Connection failed: " . $conn->connect_error);
-                }
-                $sql="SELECT * FROM Test";
-                $result = $conn->query($sql);
-                $row = $result->fetch_assoc();
-                if ($result->num_rows > 0) {
-                    $row = $result->fetch_assoc();
-                    echo $row['name']; // Replace 'column_name' with the actual name of the column you want to echo
-                } else {
-                    echo "No rows found";
-                }
+                // // Check connection
+                // if ($conn->connect_error) {
+                //     echo 'fucked up';
+                //     die("Connection failed: " . $conn->connect_error);
+                // }
+                // $sql="SELECT * FROM Test";
+                // $result = $conn->query($sql);
+                // $row = $result->fetch_assoc();
+                // if ($result->num_rows > 0) {
+                //     $row = $result->fetch_assoc();
+                //     echo $row['name']; // Replace 'column_name' with the actual name of the column you want to echo
+                // } else {
+                //     echo "No rows found";
+                // }
                 // // Fetch tour data from the database
                 // $sql = "SELECT name, description, image FROM tours";
                 // $result = $conn->query($sql);
