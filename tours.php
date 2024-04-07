@@ -68,11 +68,11 @@
                 if ($result->num_rows > 0) {
                     // Output data of each row
                     while ($row = $result->fetch_assoc()) {
-                        //echo json_encode($row); // for debugging
-                
                         echo '<div class="tour-cards" data-name="' . $row["name"] . '" data-description="' . $row["description"] . '" data-image="' . $row["image"] . '">';
                         echo '<div class="image-box">';
+                        echo '<a href="tour_details.php?name=' . urlencode($row["name"]) . '&description=' . urlencode($row["description"]) . '&image=' . urlencode($row["image"]) . '">';
                         echo '<img src="' . $row["image"] . '" alt="' . $row["name"] . '" />';
+                        echo '</a>';
                         echo '<div class="overlay"></div>';
                         echo '<div class="image-box-text">';
                         echo '<h2>' . $row["name"] . '</h2>';
@@ -81,20 +81,11 @@
                         echo '<div class="tour-cards-text">';
                         echo '<h1>' . $row["name"] . '</h1>';
                         echo '<p>' . $row["description"] . '</p>';
-                        echo '<a href="#" class="btn-map">';
-                        echo '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-label="View Route Map">';
-                        echo '<path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />';
-                        echo '<path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />';
-                        echo '</svg>';
-                        echo '<span>View Route Map</span>';
-                        echo '</a>';
-                        echo '<div class="price">';
-                        echo '<p>$' . $row["price"] . ' <span>Per person</span></p>';
-                        echo '<h2>' . $row["duration"] . ' Days</h2>';
-                        echo '</div>';
+                        echo '<a href="tour_details.php?name=' . urlencode($row["name"]) . '&description=' . urlencode($row["description"]) . '&image=' . urlencode($row["image"]) . '" class="btn-map">View Details</a>';
                         echo '</div>';
                         echo '</div>';
                     }
+                    
                 } else {
                     echo "0 results";
                 }
