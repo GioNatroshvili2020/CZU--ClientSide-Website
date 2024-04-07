@@ -22,9 +22,11 @@ fetch_and_pull() {
 
 # Monitor changes in the directory
 while true; do
-    if [ "$(ls -A $dir_to_monitor)" ]; then
+    if [ -d "$dir_to_monitor" ]; then
         delete_files
-        echo "running git stuff"
+        fetch_and_pull
+    else
+        echo "Directory '$dir_to_monitor' does not exist."
     fi
-    sleep 10  # Adjust the sleep duration as needed
+    sleep 1  # Adjust the sleep duration as needed
 done
