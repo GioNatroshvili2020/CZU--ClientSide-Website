@@ -54,64 +54,66 @@
         <p>This place amazes with its fabulous atmosphere and nature</p>
       </div>
       <div class="main-container">
-    <?php
-    include_once 'config.php';
-    $connection = new mysqli($servername, $username, $password, $dbname);
+        <?php
+        include_once 'config.php';
+        $connection = new mysqli($servername, $username, $password, $dbname);
 
-    // Check connection
-    if ($connection->connect_error) {
-        die("Connection failed: " . $connection->connect_error);
-    }
+        // Check connection
+        if ($connection->connect_error) {
+          die("Connection failed: " . $connection->connect_error);
+        }
 
-    $query = "SELECT * FROM Sights";
-    $result = mysqli_query($connection, $query);
+        $query = "SELECT * FROM Sights";
+        $result = mysqli_query($connection, $query);
 
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
+        if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_assoc($result)) {
             $name = $row['name'];
             $info = $row['info'];
+            $description = $_GET['description'];
             $imageUrl = $row['imageUrl'];
             $sectionId = "section" . $row['id'];
             ?>
-            <a href="#" onclick="showSection('<?php echo $sectionId; ?>')">
-                <div class="image-box image-1">
-                    <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
-                    <div class="overlay"></div>
-                    <div class="image-box-text">
-                        <h2>
-                            <?php echo $name; ?>
-                        </h2>
-                        <p>
-                            <?php echo $info; ?>
-                        </p>
-                    </div>
+            <a href="sights-description.php?id=<?php echo $row['id']; ?>&name=<?php echo urlencode($name); ?>&info=<?php echo urlencode($info); ?>&imageUrl=<?php echo urlencode($imageUrl); ?>&description=<?php echo urlencode($row['description']); ?>"
+              onclick="showSection('<?php echo $sectionId; ?>')">
+              <div class="image-box image-1">
+                <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
+                <div class="overlay"></div>
+                <div class="image-box-text">
+                  <h2>
+                    <?php echo $name; ?>
+                  </h2>
+                  <p>
+                    <?php echo $info; ?>
+                  </p>
                 </div>
+              </div>
             </a>
             <?php
+          }
+        } else {
+          echo "No sights found.";
         }
-    } else {
-        echo "No sights found.";
-    }
 
-    mysqli_close($connection);
-    ?>
-</div>
-
-
-    <section class="about h-entry" id="about">
-      <div class="main-text">
-        <h1>Unforgettable Sensations</h1>
-        <p>
-          Embark on an unforgettable journey through the stunning landscapes of Kazbegi, Georgia. Our tours ensure a
-          perfect trip, offering affordable tickets and the best hotels.
-          Every moment is an opportunity to savor the beauty of Georgia's majestic scenery. Your adventure in Kazbegi
-          awaits!
-        </p>
+        mysqli_close($connection);
+        ?>
       </div>
-      <div class="main-container">
-        <video src="public/images/mountains.mp4" autoplay loop muted></video>
-      </div>
-    </section>
+
+
+      <section class="about h-entry" id="about">
+        <div class="main-text">
+          <h1>Unforgettable Sensations</h1>
+          <p>
+            Embark on an unforgettable journey through the stunning landscapes of Kazbegi, Georgia. Our tours ensure a
+            perfect trip, offering affordable tickets and the best hotels.
+            Every moment is an opportunity to savor the beauty of Georgia's majestic scenery. Your adventure in Kazbegi
+            awaits!
+          </p>
+        </div>
+        <div class="main-container">
+          <video src="public/images/mountains.mp4" autoplay loop muted></video>
+        </div>
+      </section>
   </main>
 
   <footer class="hcard">

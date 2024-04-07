@@ -4,7 +4,7 @@ $id = $_GET['id'];
 $name = $_GET['name'];
 $info = $_GET['info'];
 $description = $_GET['description'];
-$image = $_GET['imageUrl'];
+$imageUrl = $_GET['imageUrl'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +58,7 @@ $image = $_GET['imageUrl'];
     <main>
         <section class="explore h-entry" d="section<?php echo $id; ?>">
             <div class="image-box image-1 img-position">
-                <img src="<?php echo $image; ?>" alt="<?php echo $name; ?>" />
+                <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
                 <div class="overlay"></div>
                 <div class="image-box-text">
                     <h2>
