@@ -14,7 +14,6 @@
 </head>
 
 <body>
-    <div id="preloadder" role="status" aria-live="polite"></div>
 
     <header class="primary-header" role="banner">
         <!-- Header Content -->
@@ -28,11 +27,12 @@
             <div class="main-container">
                 <?php
                 include_once 'config.php';
-                // Connect to your database            
+                // Connect to your database     
                 $conn = new mysqli($servername, $username, $password, $dbname);
 
                 // Check connection
                 if ($conn->connect_error) {
+                    echo 'fucked up';
                     die("Connection failed: " . $conn->connect_error);
                 }
                 $sql="SELECT * FROM Test";
@@ -40,11 +40,15 @@
                 $row = $result->fetch_assoc();
                 if ($result->num_rows > 0) {
                     $row = $result->fetch_assoc();
-                    echo $row['name']; // Replace 'column_name' with the actual name of the column you want to echo
+                    echo 'reituzi sadaa bliad';
+                    //echo $row['name']; 
+                    foreach ($row as $columnName => $value) {
+                        echo $columnName . ": " . $value . "<br>";
+                    }
                 } else {
                     echo "No rows found";
                 }
-                // // Fetch tour data from the database
+                // Fetch tour data from the database
                 // $sql = "SELECT name, description, image FROM tours";
                 // $result = $conn->query($sql);
 
