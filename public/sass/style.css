@@ -924,6 +924,7 @@ footer .credit a {
 .txt-position-tour-detail {
   max-width: 400px; /* Limiting maximum width */
   margin-left: auto; /* Aligning text to the right side */
+  margin-right: auto;
 }
 
 .txt-position-tour-detail p {
