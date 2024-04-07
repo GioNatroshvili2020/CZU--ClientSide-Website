@@ -909,4 +909,10 @@ footer .credit a {
   width: 300px;
 }
 
+.book-tour {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  margin-top: 20px; /* Adjust margin as needed */
+}
+
 /*# sourceMappingURL=style.css.map */
