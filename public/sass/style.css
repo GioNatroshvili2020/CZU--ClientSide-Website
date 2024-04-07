@@ -890,5 +890,23 @@ footer .credit a {
     padding: 0 0 0 5rem;
   }
 }
+.input-info {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  color: hsl(0, 0%, 100%);
+}
+
+.txt-position {
+  margin-left: 320px;
+  width: calc(100% - 320px);
+  z-index: 1;
+  margin-top: -450px;
+}
+
+.img-position {
+  z-index: -1;
+  height: 450px;
+  width: 300px;
+}
 
 /*# sourceMappingURL=style.css.map */
