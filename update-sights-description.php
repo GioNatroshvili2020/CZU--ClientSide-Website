@@ -107,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $stmt = $connection->prepare("UPDATE Sights SET info=? WHERE id=?");
-    $stmt->bind_param("ssi", $info, $description, $id);
+    $stmt->bind_param("ssi", $info, $id);
     $stmt->execute();
 
     if ($stmt->affected_rows > 0) {
