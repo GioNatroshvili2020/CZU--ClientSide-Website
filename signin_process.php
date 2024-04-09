@@ -10,7 +10,7 @@ echo "aq movedi1";
 $email = $_POST['email'];
 $password = $_POST['password'];
 echo "aq movedi4";
-
+echo $email;
 // Retrieve user from database
 $sql = "SELECT * FROM users WHERE email = '$email'";
 $result = mysqli_query($connection, $sql);
