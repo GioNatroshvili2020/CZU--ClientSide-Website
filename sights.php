@@ -33,7 +33,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="sights.php">Sights</a></li>
-          <li><a href="footage.html">Footage</a></li>
+          <li><a href="footage.php">Footage</a></li>
           <li><a href="tours.php">Tours</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="sign_in.php">Sign In</a></li> <!-- Added Sign In item -->
@@ -154,7 +154,7 @@
         <h1>Quick Links</h1>
         <ul>
           <li><a href="sights.php">Sights</a></li>
-          <li><a href="footage.html">Footage</a></li>
+          <li><a href="footage.php">Footage</a></li>
           <li><a href="tours.php">Tours</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
