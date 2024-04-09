@@ -31,7 +31,7 @@ if (mysqli_num_rows($result) == 1) {
         $_SESSION['logged_in'] = true;
 
         // Redirect to dashboard or any other page
-        header('Location: index.html');
+        header('Location: index.php');
         exit();
     } else {
         // Password is incorrect

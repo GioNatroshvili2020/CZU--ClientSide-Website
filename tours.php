@@ -21,7 +21,7 @@
 
     <header class="primary-header" role="banner">
         <div class="left-part">
-            <a href="index.html" aria-label="Go to Home Page">
+            <a href="index.php" aria-label="Go to Home Page">
                 <img src="public/images/logo/mountain.png" alt="Kazbegi Logo" />
                 <div class="logo">
                     <h1>Kazbegi</h1>
@@ -31,7 +31,7 @@
         <div class="right-part">
             <div class="navbar" role="navigation">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="sights.php">Sights</a></li>
                     <li><a href="footage.php">Footage</a></li>
                     <li><a href="tours.php">Tours</a></li>
