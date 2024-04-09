@@ -11,10 +11,10 @@ $_SESSION['captcha'] = $captcha_string;
 $captcha_image = imagecreatetruecolor(120, 30);
 
 // Set the background color to white
-$background_color = imagecolorallocate($captcha_image, 255, 255, 255);
+$background_color = imagecolorallocate($captcha_image, 0, 0, 0);
 
 // Set the text color to black
-$text_color = imagecolorallocate($captcha_image, 0, 0, 0);
+$text_color = imagecolorallocate($captcha_image, 255, 255, 255);
 
 // Write the captcha string on the image
 imagestring($captcha_image, 5, 5, 5, $captcha_string, $text_color);
