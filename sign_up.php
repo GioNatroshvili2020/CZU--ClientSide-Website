@@ -83,8 +83,10 @@
                     </div>
                     <div class="name">
                         <label for="password">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Enter your password"
-                            required />
+                        <input type="password" name="password" id="password" placeholder="Enter your password" required
+                            pattern="(?=.*\d)(?=.*[A-Z]).{8,}"
+                            title="Password must contain at least 8 characters, including one capital letter and some numbers" />
+
                     </div>
                     <div class="name">
                         <label for="confirm-password">Confirm Password</label>
@@ -93,7 +95,8 @@
                     </div>
                     <div class="name">
                         <label for="captcha">Captcha</label>
-                        <input style="margin: bottom 20px;" type="text" name="captcha" id="captcha" placeholder="Enter the captcha" required />
+                        <input style="margin: bottom 20px;" type="text" name="captcha" id="captcha"
+                            placeholder="Enter the captcha" required />
                         <!-- Display the captcha image -->
                         <img style="  width: 120px; height: 60px;" src="captcha.php" alt="Captcha Image" />
                     </div>
