@@ -105,8 +105,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "UPDATE Footage SET name = '$name', capture_by='$capture_by', description = '$description' WHERE id = $id";
     if ($connection->query($sql) === TRUE) {
-        header("Location: sights.php");
-        exit;
+        header("Location: footage.php");
+        echo header("Location: footage.php");
+
     } else {
         echo "Error updating record: " . $connection->error;
     }
