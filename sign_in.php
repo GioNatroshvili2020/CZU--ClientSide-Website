@@ -34,7 +34,7 @@
           <li><a href="sights.php">Sights</a></li>
           <li><a href="footage.php">Footage</a></li>
           <li><a href="tours.php">Tours</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.php">Contact</a></li>
           <li><a href="sign_in.php">Sign In</a></li> <!-- Added Sign In item -->
         </ul>
       </div>
@@ -112,7 +112,7 @@
           <li><a href="sights.php">Sights</a></li>
           <li><a href="footage.php">Footage</a></li>
           <li><a href="tours.php">Tours</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.php">Contact</a></li>
         </ul>
       </div>
       <div class="contact-info">

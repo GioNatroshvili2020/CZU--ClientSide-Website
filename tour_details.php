@@ -6,6 +6,9 @@ $tour_image = $_GET['image'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -38,8 +41,16 @@ $tour_image = $_GET['image'];
                     <li><a href="sights.php">Sights</a></li>
                     <li><a href="footage.php">Footage</a></li>
                     <li><a href="tours.php">Tours</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="sign_in.php">Sign In</a></li> <!-- Added Sign In item -->
+                    <li><a href="contact.php">Contact</a></li>
+                    <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
+                        <li><a href="profile.php">
+                                <?php echo $_SESSION['user_name']; ?>
+                            </a></li>
+                        <li><a href="logout.php">Logout</a></li>
+                    <?php else: ?>
+                        <li><a href="sign_in.php">Sign In</a></li>
+                        <li><a href="sign_up.php">Sign Up</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
             <div class="ham-menu">

@@ -5,21 +5,21 @@ session_start();
 ?>
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kazbegi Travel</title>
-  <link rel="shortcut icon" href="public/images/logo/mountain-fav.png" type="image/x-icon" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="shortcut icon" href="public/images/logo/mountain-fav.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Poppins:wght@400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <!-- css  -->
-  <link rel="stylesheet" href="public/sass/style.css" />
+    rel="stylesheet">
+  <link rel="stylesheet" href="public/sass/style.css">
 </head>
 
 <body>
-  <div id="preloadder"></div>
+  <div id="preloader">
+  </div>
 
   <header class="primary-header">
     <div class="left-part">
@@ -58,60 +58,34 @@ session_start();
   </header>
 
   <main>
-    <section class="footage" id="footage">
+    <section class="contact h-card" id="contact">
       <div class="main-text">
-        <h1>Kazbegi in Footage</h1>
+        <h1>Get in touch</h1>
       </div>
       <div class="main-container">
-        <?php
-        include_once 'config.php';
-        $connection = new mysqli($servername, $username, $password, $dbname);
-
-        if ($connection->connect_error) {
-          die("Connection failed: " . $connection->connect_error);
-        }
-
-        $query = "SELECT * FROM Footage";
-        $result = mysqli_query($connection, $query);
-
-        if (mysqli_num_rows($result) > 0) {
-          while ($row = mysqli_fetch_assoc($result)) {
-            $name = $row['name'];
-            $imageUrl = $row['imageUrl'];
-            $capture_by = $row['capture_by'];
-            ?>
-            <a href="footage-description.php?id=<?php echo $row['id']; ?>
-              &name=<?php echo urlencode($name); ?>
-              &capture_by=<?php echo urlencode($capture_by); ?>
-              &imageUrl=<?php echo urlencode($imageUrl); ?>
-              &description=<?php echo urlencode($row['description']); ?>">
-              <div class="image image-1">
-                <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
-                <h3>
-                  <?php echo $name; ?>
-                </h3>
-              </div>
-            </a>
-            <?php
-          }
-        } else {
-          echo "No footage found.";
-        }
-
-        mysqli_close($connection);
-        ?>
+        <form action="#">
+          <div class="name">
+            <label for="name">Name</label>
+            <input type="text" placeholder="Enter Your name " id="name" name="name" class="fn" />
+          </div>
+          <div class="phone">
+            <label for="phone">Email or Phone</label>
+            <input type="text" name="phone" id="phone" class="tel" placeholder="Enter Your Number or phone" />
+          </div>
+          <div class="message">
+            <label for="message">Your message</label>
+            <textarea name="message" id="message" cols="30" rows="10"
+              placeholder="Tell us about your interests passion needs and any other details relevent to your trip"></textarea>
+          </div>
+          <button class="btn-send">Send</button>
+        </form>
       </div>
     </section>
   </main>
 
-  <!-- footer -->
-  <footer>
-    <div class="footer-image">
-      <div class="overlay1"></div>
-      <div class="overlay2"></div>
-    </div>
+  <footer class="hcard">
     <div class="main-container">
-      <div class="heading-foo">
+      <div class="heading-foo org">
         <span>
           <h1>Kazbegi</h1>
           <img src="public/images/logo/mountain.png" alt="" />
@@ -164,7 +138,6 @@ session_start();
   </footer>
 
   <script src="public/js/main.js"></script>
-  <script src="public/js/footage-description.js"></script>
 </body>
 
 </html>
