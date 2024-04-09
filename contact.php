@@ -151,7 +151,8 @@ ini_set('log_errors', 1);
 ini_set('error_log', 'error.log');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  echo "aqane iko iunisi ";
+  if (!empty($_POST['name']) && !empty($_POST['contact_info']) && !empty($_POST['message'])) {
+
     $name = $_POST['name'];
     $contact_info = $_POST['contact_info'];
     $message = $_POST['message'];
@@ -161,21 +162,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $connection = new mysqli($servername, $username, $password, $dbname);
 
     if ($connection->connect_error) {
-        die("Connection failed: " . $connection->connect_error);
+      die("Connection failed: " . $connection->connect_error);
     }
 
     $sql = "INSERT INTO UserContacts (name, contact_info, message) VALUES ('$name', '$contact_info', '$message')";
     echo $sql;
     if ($connection->query($sql) === TRUE) {
-        // echo "<script>window.location.href = 'contact.php';</script>";
-        echo "New record created successfully";
-        exit;
+      // echo "<script>window.location.href = 'contact.php';</script>";
+      echo "New record created successfully";
+      exit;
     } else {
-        echo "Error updating record: " . $connection->error;
+      echo "Error updating record: " . $connection->error;
     }
 
     // Close connection
     $connection->close();
-
+  }
 }
 ?>
