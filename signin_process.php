@@ -1,6 +1,6 @@
 <!-- signin_process.php -->
 <?php
-//session_start();
+session_start();
 
 include_once 'config.php';
 $connection = new mysqli($servername, $username, $password, $dbname);
