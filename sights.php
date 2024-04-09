@@ -33,7 +33,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="sights.php">Sights</a></li>
-          <li><a href="footage.html">Footage</a></li>
+          <li><a href="footage.php">Footage</a></li>
           <li><a href="tours.php">Tours</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="sign_in.php">Sign In</a></li> <!-- Added Sign In item -->
@@ -74,8 +74,7 @@
             $imageUrl = $row['imageUrl'];
             $sectionId = "section" . $row['id'];
             ?>
-            <a href="sights-description.php?id=<?php echo $row['id']; ?>&name=<?php echo urlencode($name); ?>&info=<?php echo urlencode($info); ?>&imageUrl=<?php echo urlencode($imageUrl); ?>&description=<?php echo urlencode($row['description']); ?>"
-              >
+            <a href="sights-description.php?id=<?php echo $row['id']; ?>&name=<?php echo urlencode($name); ?>&info=<?php echo urlencode($info); ?>&imageUrl=<?php echo urlencode($imageUrl); ?>&description=<?php echo urlencode($row['description']); ?>">
               <div class="image-box image-1">
                 <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
                 <div class="overlay"></div>
@@ -155,7 +154,7 @@
         <h1>Quick Links</h1>
         <ul>
           <li><a href="sights.php">Sights</a></li>
-          <li><a href="footage.html">Footage</a></li>
+          <li><a href="footage.php">Footage</a></li>
           <li><a href="tours.php">Tours</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>

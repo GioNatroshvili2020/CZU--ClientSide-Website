@@ -32,7 +32,7 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="sights.php">Sights</a></li>
-          <li><a href="footage.html">Footage</a></li>
+          <li><a href="footage.php">Footage</a></li>
           <li><a href="tours.php">Tours</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="sign_in.php">Sign In</a></li> <!-- Added Sign In item -->
@@ -52,6 +52,39 @@
         <h1>Kazbegi in Footage</h1>
       </div>
       <div class="main-container">
+        <?php
+        include_once 'config.php';
+        $connection = new mysqli($servername, $username, $password, $dbname);
+
+        if ($connection->connect_error) {
+          die("Connection failed: " . $connection->connect_error);
+        }
+
+        $query = "SELECT * FROM Footage";
+        $result = mysqli_query($connection, $query);
+
+        if (mysqli_num_rows($result) > 0) {
+          while ($row = mysqli_fetch_assoc($result)) {
+            $name = $row['name'];
+            $imageUrl = $row['imageUrl'];
+            ?>
+           <a href="footage-description.php?id=<?php echo $row['id']; ?>&name=<?php echo urlencode($name); ?>&capture_by=<?php echo urlencode($capture_by); ?>&imageUrl=<?php echo urlencode($imageUrl); ?>&description=<?php echo urlencode($row['description']); ?>">
+              <div class="image image-1">
+                <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
+                <h3><?php echo $name; ?></h3>
+              </div>
+            </a>
+            <?php
+          }
+        } else {
+          echo "No footage found.";
+        }
+
+        mysqli_close($connection);
+        ?>
+      </div>
+
+      <!-- <div class="main-container">
         <a href="#" onclick="showSection('section1')">
           <div class="image image-1">
             <img src="public/images/footage/gergeti1.png" alt="Gergeti Trinity  Monastery" />
@@ -105,7 +138,7 @@
             <h3>Stepantsminda</h3>
           </div>
         </a>
-      </div>
+      </div> -->
     </section>
   </main>
 
@@ -153,7 +186,7 @@
         <h1>Quick Links</h1>
         <ul>
           <li><a href="sights.php">Sights</a></li>
-          <li><a href="footage.html">Footage</a></li>
+          <li><a href="footage.php">Footage</a></li>
           <li><a href="tours.php">Tours</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
