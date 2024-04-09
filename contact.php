@@ -70,14 +70,14 @@ session_start();
           </div>
           <div class="phone">
             <label for="phone">Email or Phone</label>
-            <input type="text" name="phone" id="phone" class="tel" placeholder="Enter Your Number or phone" />
+            <input type="text" name="contact_info" id="phone" class="tel" placeholder="Enter Your Number or phone" />
           </div>
           <div class="message">
             <label for="message">Your message</label>
             <textarea name="message" id="message" cols="30" rows="10"
               placeholder="Tell us about your interests passion needs and any other details relevent to your trip"></textarea>
           </div>
-          <button type="submit">Send</button>
+          <button type="submit" class="btn-send">Send</button>
         </form>
       </div>
     </section>
@@ -153,7 +153,7 @@ ini_set('error_log', 'error.log');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   echo "aqane iko iunisi ";
     $name = $_POST['name'];
-    $phone = $_POST['phone'];
+    $contact_info = $_POST['contact_info'];
     $message = $_POST['message'];
 
 
@@ -164,7 +164,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $connection->connect_error);
     }
 
-    $sql = "INSERT INTO UserContacts (name, phone, message) VALUES ('$name', '$phone', '$message')";
+    $sql = "INSERT INTO UserContacts (name, contact_info, message) VALUES ('$name', '$contact_info', '$message')";
     echo $sql;
     if ($connection->query($sql) === TRUE) {
         // echo "<script>window.location.href = 'contact.php';</script>";
