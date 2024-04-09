@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="public/sass/style.css">
     <script>
         function validateForm() {
+            debugger
             var password = document.getElementById("password").value;
             var confirmPassword = document.getElementById("confirm-password").value;
             var email = document.getElementById("email").value;
@@ -38,7 +39,31 @@
     <div id="preloader"></div>
 
     <header class="primary-header">
-        <!-- Header content -->
+        <div class="left-part">
+            <a href="index.html">
+                <img src="public/images/logo/mountain.png" alt="Kazbegi Logo" />
+                <div class="logo">
+                    <h1>Kazbegi</h1>
+                </div>
+            </a>
+        </div>
+        <div class="right-part">
+            <div class="navbar" role="navigation">
+                <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="sights.php">Sights</a></li>
+                  <li><a href="footage.html">Footage</a></li>
+                  <li><a href="tours.php">Tours</a></li>
+                  <li><a href="contact.html">Contact</a></li>
+                  <li><a href="sign_in.php">Sign In</a></li> <!-- Added Sign In item -->
+                </ul>
+            </div>
+            <div class="ham-menu">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+            </div>
+        </div>
     </header>
 
     <main>
