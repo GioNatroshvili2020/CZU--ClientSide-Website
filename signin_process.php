@@ -13,6 +13,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 $sql = "SELECT * FROM users WHERE email = '$email'";
 $result = mysqli_query($conn, $sql);
+
+echo 'aq moxvedi?'; 
 if (mysqli_num_rows($result) == 1) {
     // User found
     echo 'aqane var';
