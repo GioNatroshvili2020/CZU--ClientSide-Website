@@ -75,13 +75,12 @@ $sectionId = "section" . $id;
                 </p>
             </div>
             <div class="buttons"> 
-            <a href="update-sights-description.php" style="margin-left: 20px;" class="btn-send">მავსტყან</a>
+            <a href="update-sights-description.php" style="margin-left: 20px;" class="btn-send">სეივი</a>
           </div>
         </section>
     </main>
     <script src="public/js/main.js"></script>
     <script src="public/js/sights-description.js"></script>
-    <!-- <script src="public/js/common-description.js"></script> -->
 
 </body>
 
