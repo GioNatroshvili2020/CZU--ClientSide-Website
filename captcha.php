@@ -8,7 +8,7 @@ $captcha_string = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnop
 $_SESSION['captcha'] = $captcha_string;
 
 // Create a blank image with dimensions 120x30
-$captcha_image = imagecreatetruecolor(60, 30);
+$captcha_image = imagecreatetruecolor(120, 30);
 
 // Set the background color to white
 $background_color = imagecolorallocate($captcha_image, 0, 0, 0);
