@@ -85,6 +85,15 @@ session_start();
                 <p class="input-info">
                     <?php echo $description; ?>
                 </p>
+                <br />
+                <a class="input-info btn btn-get update-button" href="update-footage-description.php?
+                name=<?php echo urlencode($name); ?>&
+                id=<?php echo urlencode($id); ?>&
+                capture_by=<?php echo urlencode($capture_by); ?>&
+                description=<?php echo urlencode($description); ?>&
+                imageUrl=<?php echo urlencode($imageUrl); ?>">
+                    <span>Update info</span>
+                </a>
             </div>
         </section>
     </main>

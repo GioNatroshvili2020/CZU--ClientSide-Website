@@ -1,7 +1,7 @@
 <?php
 $id = $_GET['id'];
 $name = $_GET['name'];
-$info = $_GET['info'];
+$capture_by = $_GET['capture_by'];
 $description = $_GET['description'];
 $imageUrl = $_GET['imageUrl'];
 $sectionId = "section" . $id;
@@ -59,36 +59,60 @@ $sectionId = "section" . $id;
             <div class="image-box image-1 img-position">
                 <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
                 <div class="overlay"></div>
-                <div class="image-box-text">
-                    <h2>
-                        <?php echo $name; ?>
-                    </h2>
-                    <p>
-                        <?php echo $info; ?>
-                    </p>
-                </div>
-
             </div>
             <div class="txt-position">
-                <p class="input-info">
-                    <?php echo $description; ?>
-                </p>
-                <br />
-                <a class="input-info btn btn-get update-button" href="update-sights-description.php?
-                name=<?php echo urlencode($name); ?>&
-                id=<?php echo urlencode($id); ?>&
-                info=<?php echo urlencode($info); ?>&
-                description=<?php echo urlencode($description); ?>&
-                imageUrl=<?php echo urlencode($imageUrl); ?>">
-                    <span>Update info</span>
-                </a>
+                <form action="" method="post">
+                    <input class="real-input" type="text" name="name" value="<?php echo htmlspecialchars($name) ?>">
+                    <br />
+                    <input class="real-input" type="text" name="capture_by" value="<?php echo htmlspecialchars($capture_by) ?>">
+                    <br />
+                    <textarea class="textarea-info" name="description">
+                        <?php echo htmlspecialchars($description); ?>
+                    </textarea>
+                    <button type="submit" class="save-button btn btn-get"><span>Save</span></button>
+                </form>
             </div>
         </section>
     </main>
     <script src="public/js/main.js"></script>
     <script src="public/js/sights-description.js"></script>
-    <!-- <script src="public/js/common-description.js"></script> -->
 
 </body>
 
 </html>
+
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Log errors to a file
+ini_set('log_errors', 1);
+ini_set('error_log', 'error.log');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = $_GET['id'];
+    $name = $_POST['name'];
+    $capture_by = $_POST['capture_by'];
+    $description = $_POST['description'];
+
+
+    include_once 'config.php';
+    $connection = new mysqli($servername, $username, $password, $dbname);
+
+    if ($connection->connect_error) {
+        die("Connection failed: " . $connection->connect_error);
+    }
+
+    $sql = "UPDATE Footage SET name = '$name', capture_by='$capture_by', description = '$description' WHERE id = $id";
+    if ($connection->query($sql) === TRUE) {
+        header("Location: sights.php");
+        exit;
+    } else {
+        echo "Error updating record: " . $connection->error;
+    }
+
+    // Close connection
+    $connection->close();
+
+}
+?>
