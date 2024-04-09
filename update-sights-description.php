@@ -69,7 +69,7 @@ $sectionId = "section" . $id;
             <div class="txt-position">
                 <form action="" method="post">
                     <input class="real-input" type="text" name="info" value="<?php echo htmlspecialchars($info) ?>">
-                    <input class="real-input" type="text" name="id" value="<?php echo $id; ?>">
+                    <input class="real-input" type="number" name="id" value="<?php echo $id; ?>">
                     <br />
                     <textarea class="textarea-info" name="description">
                         <?php echo htmlspecialchars($description); ?>
@@ -99,6 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $info = $_POST['info'];
     $description = $_POST['description'];
 
+   echo $ids = $_GET['id'];
     include_once 'config.php';
     $connection = new mysqli($servername, $username, $password, $dbname);
 
