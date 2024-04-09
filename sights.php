@@ -24,7 +24,7 @@ session_start();
 
   <header class="primary-header">
     <div class="left-part">
-      <a href="index.html">
+      <a href="index.php">
         <img src="public/images/logo/mountain.png" alt="Kazbegi Logo" />
         <div class="logo">
           <h1>Kazbegi</h1>
