@@ -163,14 +163,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $connection->connect_error);
     }
 
-    $sql = "INSERT INTO UserContacts name = '$name', phone='$phone', message = '$message'";
+    $sql = "INSERT INTO UserContacts (name, phone, message) VALUES ('$name', '$phone', '$message')";
     echo $sql;
-    // if ($connection->query($sql) === TRUE) {
-    //     echo "<script>window.location.href = 'contact.php';</script>";
-    //     exit;
-    // } else {
-    //     echo "Error updating record: " . $connection->error;
-    // }
+    if ($connection->query($sql) === TRUE) {
+        // echo "<script>window.location.href = 'contact.php';</script>";
+        echo "New record created successfully";
+        exit;
+    } else {
+        echo "Error updating record: " . $connection->error;
+    }
 
     // Close connection
     $connection->close();
