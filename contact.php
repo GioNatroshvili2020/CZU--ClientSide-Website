@@ -151,6 +151,7 @@ ini_set('log_errors', 1);
 ini_set('error_log', 'error.log');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  echo "aqane iko iunisi ";
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $message = $_POST['message'];
