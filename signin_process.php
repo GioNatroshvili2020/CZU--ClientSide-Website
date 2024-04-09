@@ -4,26 +4,24 @@ session_start();
 
 // Include database connection
 include_once 'config.php';
-echo "aq movedi1";
 
 // Retrieve form data
 $email = $_POST['email'];
 $password = $_POST['password'];
-echo "aq movedi4";
-echo $email;
 // Retrieve user from database
+$conn = new mysqli($servername, $username, $password, $dbname);
+
 $sql = "SELECT * FROM users WHERE email = '$email'";
-$result = mysqli_query($connection, $sql);
-echo "aq movedi";
+$result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 1) {
     // User found
+    echo 'aqane var';
     $user = mysqli_fetch_assoc($result);
     if (password_verify($password, $user['password_hash'])) {
         // Password is correct, start session and set user data
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user_name'] = $user['name'];
         $_SESSION['logged_in'] = true;
-        echo "aq moved2";
 
         // Redirect to dashboard or any other page
         header('Location: index.html');
