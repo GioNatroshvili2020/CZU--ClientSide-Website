@@ -63,7 +63,7 @@ session_start();
         <h1>Get in touch</h1>
       </div>
       <div class="main-container">
-        <form action="#">
+        <form action="" method="post">
           <div class="name">
             <label for="name">Name</label>
             <input type="text" placeholder="Enter Your name " id="name" name="name" class="fn" />
@@ -163,8 +163,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $connection->connect_error);
     }
 
-    $sql = "INSERT INTO UserContacts (name, phone, message) VALUES ('$name', '$phone', '$message')";
-echo $sql;
+    $sql = "INSERT INTO UserContacts name = '$name', phone='$phone', message = '$message'";
+    echo $sql;
     // if ($connection->query($sql) === TRUE) {
     //     echo "<script>window.location.href = 'contact.php';</script>";
     //     exit;
