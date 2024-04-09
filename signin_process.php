@@ -4,10 +4,12 @@ session_start();
 
 // Include database connection
 include_once 'config.php';
+echo "aq movedi1";
 
 // Retrieve form data
 $email = $_POST['email'];
 $password = $_POST['password'];
+echo "aq movedi4";
 
 // Retrieve user from database
 $sql = "SELECT * FROM users WHERE email = '$email'";
