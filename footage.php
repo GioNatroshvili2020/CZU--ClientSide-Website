@@ -67,8 +67,13 @@
           while ($row = mysqli_fetch_assoc($result)) {
             $name = $row['name'];
             $imageUrl = $row['imageUrl'];
+            $capture_by = $row['capture_by'];
             ?>
-           <a href="footage-description.php?id=<?php echo $row['id']; ?>&name=<?php echo urlencode($name); ?>&capture_by=<?php echo urlencode($capture_by); ?>&imageUrl=<?php echo urlencode($imageUrl); ?>&description=<?php echo urlencode($row['description']); ?>">
+            <a href="footage-description.php?id=<?php echo $row['id']; ?>
+              &name=<?php echo urlencode($name); ?>
+              &capture_by=<?php echo urlencode($capture_by); ?>
+              &imageUrl=<?php echo urlencode($imageUrl); ?>
+              &description=<?php echo urlencode($row['description']); ?>">
               <div class="image image-1">
                 <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
                 <h3><?php echo $name; ?></h3>
@@ -83,62 +88,6 @@
         mysqli_close($connection);
         ?>
       </div>
-
-      <!-- <div class="main-container">
-        <a href="#" onclick="showSection('section1')">
-          <div class="image image-1">
-            <img src="public/images/footage/gergeti1.png" alt="Gergeti Trinity  Monastery" />
-            <h3>Gergeti Trinity Monastery</h3>
-          </div>
-        </a>
-        <a href="#" onclick="showSection('section2')">
-          <div class="image image-2">
-            <img src="public/images/footage/horses.png" alt="Kazbegi horses" />
-            <h3>Kazbegi horses</h3>
-          </div>
-        </a>
-        <a href="#" onclick="showSection('section3')">
-          <div class="image image-3">
-            <img src="public/images/footage/lake1.png" alt="Kazbegi Lake" />
-            <h3>Kazbegi Lake</h3>
-          </div>
-        </a><a href="#" onclick="showSection('section4')">
-          <div class="image image-4">
-            <img src="public/images/footage/arc.png" alt="People’s Friendship Arch" />
-            <h3>People’s Friendship Arch</h3>
-          </div>
-        </a>
-        <a href="#" onclick="showSection('section5')">
-          <div class="image image-5">
-            <img src="public/images/footage/sheep.png" alt="Kazbegi Sheep" />
-            <h3>Kazbegi Sheep</h3>
-          </div>
-        </a>
-        <a href="#" onclick="showSection('section6')">
-          <div class="image image-6">
-            <img src="public/images/footage/glacier.png" alt="Glacier Hike" />
-            <h3>Glacier Hike</h3>
-          </div>
-        </a>
-        <a href="#" onclick="showSection('section7')">
-          <div class="image image-7">
-            <img src="public/images/footage/dariali.png" alt="Dariali Monastery" />
-            <h3>Dariali Monastery</h3>
-          </div>
-        </a>
-        <a href="#" onclick="showSection('section8')">
-          <div class="image image-8">
-            <img src="public/images/footage/waterfall.png" alt="Waterfall" />
-            <h3>Waterfall</h3>
-          </div>
-        </a>
-        <a href="#" onclick="showSection('section9')">
-          <div class="image image-9">
-            <img src="public/images/footage/mountains.png" alt="Stepantsminda" />
-            <h3>Stepantsminda</h3>
-          </div>
-        </a>
-      </div> -->
     </section>
   </main>
 
