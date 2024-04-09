@@ -9,12 +9,12 @@
     <link rel="shortcut icon" href="public/images/logo/mountain-fav.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Poppins:wght@400;500;600;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="public/sass/style.css">
     <script>
         function validateForm() {
-            debugger
             var password = document.getElementById("password").value;
             var confirmPassword = document.getElementById("confirm-password").value;
             var email = document.getElementById("email").value;
@@ -83,11 +83,19 @@
                     </div>
                     <div class="name">
                         <label for="password">Password</label>
-                        <input type="password" name="password" id="password" placeholder="Enter your password" required />
+                        <input type="password" name="password" id="password" placeholder="Enter your password"
+                            required />
                     </div>
                     <div class="name">
                         <label for="confirm-password">Confirm Password</label>
-                        <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm your password" required />
+                        <input type="password" name="confirm-password" id="confirm-password"
+                            placeholder="Confirm your password" required />
+                    </div>
+                    <div class="name">
+                        <label for="captcha">Captcha</label>
+                        <input type="text" name="captcha" id="captcha" placeholder="Enter the captcha" required />
+                        <!-- Display the captcha image -->
+                        <img class="captcha" src="captcha.php" alt="Captcha Image" />
                     </div>
                     <button class="btn-send">Sign Up</button>
                 </form>
