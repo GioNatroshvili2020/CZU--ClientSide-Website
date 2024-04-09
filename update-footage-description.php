@@ -62,9 +62,9 @@ $sectionId = "section" . $id;
             </div>
             <div class="txt-position">
                 <form action="" method="post">
-                    <input class="real-input" type="text" name="info" value="<?php echo htmlspecialchars($name) ?>">
+                    <input class="real-input" type="text" name="name" value="<?php echo htmlspecialchars($name) ?>">
                     <br />
-                    <input class="real-input" type="text" name="info" value="<?php echo htmlspecialchars($capture_by) ?>">
+                    <input class="real-input" type="text" name="capture_by" value="<?php echo htmlspecialchars($capture_by) ?>">
                     <br />
                     <textarea class="textarea-info" name="description">
                         <?php echo htmlspecialchars($description); ?>
