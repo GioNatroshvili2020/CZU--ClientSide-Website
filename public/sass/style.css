@@ -936,4 +936,46 @@ footer .credit a {
   height: 60px;
 }
 
+.update-button {
+  width: 150px;
+  display: block;
+  margin-left: auto;
+  text-align: center;
+}
+
+.textarea-info {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  color: hsl(0, 0%, 100%);
+  width: 100%;
+  padding: 20px;
+  resize: horizontal;
+  border: none;
+  background-color: transparent;
+  overflow-y: auto;
+  background-color: hsl(198, 100%, 6%);
+  height: 390px;
+}
+
+.save-button {
+  width: 150px;
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  text-align: center;
+}
+
+.real-input {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.5rem;
+  color: hsl(0, 0%, 100%);
+  width: 100%;
+  padding: 20px;
+  resize: horizontal;
+  border: none;
+  background-color: transparent;
+  overflow-y: auto;
+  background-color: hsl(198, 100%, 6%);
+}
+
 /*# sourceMappingURL=style.css.map */
