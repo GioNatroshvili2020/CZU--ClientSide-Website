@@ -75,7 +75,7 @@ $sectionId = "section" . $id;
         </section>
     </main>
     <script src="public/js/main.js"></script>
-    <script src="public/js/sights-description.js"></script>
+    <script src="public/js/footage-description.js"></script>
 
 </body>
 
@@ -105,8 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "UPDATE Footage SET name = '$name', capture_by='$capture_by', description = '$description' WHERE id = $id";
     if ($connection->query($sql) === TRUE) {
-        header("Location: footage.php");
-        echo header("Location: footage.php");
+        "<script>window.location.href = 'footage.php';</script>";
 
     } else {
         echo "Error updating record: " . $connection->error;
