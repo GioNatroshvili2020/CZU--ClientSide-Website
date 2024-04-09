@@ -72,13 +72,9 @@ $sectionId = "section" . $id;
             <div class="txt-position">
                 <p class="input-info">
                     <?php echo $description; ?>
-                </p>
-            </div>
-            <br />
-            <div class="txt-position">
-                <div class="input-info buttons">
+                    <br />
                     <a href="update-sights-description.php" style="margin-left: 20px;" class="btn-send">მავსტყან</a>
-                </div>
+                </p>
             </div>
         </section>
     </main>
