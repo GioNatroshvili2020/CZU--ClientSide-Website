@@ -1,3 +1,11 @@
+<?php
+$id = $_GET['id'];
+$name = $_GET['name'];
+$capture_by = $_GET['capture_by'];
+$description = $_GET['description'];
+$imageUrl = $_GET['imageUrl'];
+$sectionId = "section" . $id;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +20,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
-    <!-- css  -->
     <link rel="stylesheet" href="public/sass/style.css" />
 </head>
 
@@ -36,7 +43,7 @@
                     <li><a href="footage.php">Footage</a></li>
                     <li><a href="tours.php">Tours</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="sign_in.php">Sign In</a></li> <!-- Added Sign In item -->
+                    <li><a href="sign_in.php">Sign In</a></li>
                 </ul>
             </div>
             <div class="ham-menu">
@@ -48,7 +55,28 @@
     </header>
 
     <main>
-        <section class="explore h-entry" id="section1">
+        <section class="explore h-entry" id="<?php echo $sectionId; ?>">
+            <div class="image-box image-1 img-position">
+                <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
+                <div class="overlay"></div>
+                <div class="image-box-text">
+                    <h2>
+                        <?php echo $name; ?>
+                    </h2>
+                    <p>
+                        © <?php echo $capture_by; ?>
+                    </p>
+                </div>
+
+            </div>
+            <div class="txt-position">
+                <p class="input-info">
+                    <?php echo $description; ?>
+                </p>
+            </div>
+        </section>
+
+        <!-- <section class="explore h-entry" id="section1">
             <div class="image-box image-1 img-position">
                 <img src="public/images/footage/gergeti1.png" alt="Gergeti Trinity  Monastery" />
                 <div class="overlay"></div>
@@ -282,11 +310,11 @@
                     gravida quis blandit turpis. Nam at lectus urna duis convallis convallis tellus id.
                 </p>
             </div>
-        </section>
+        </section> -->
     </main>
     <script src="public/js/main.js"></script>
     <script src="public/js/sights-description.js"></script>
-    <script src="public/js/common-description.js"></script>
+    <!-- <script src="public/js/common-description.js"></script> -->
 </body>
 
 </html>
