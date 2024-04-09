@@ -64,7 +64,8 @@ $sectionId = "section" . $id;
                 <form action="" method="post">
                     <input class="real-input" type="text" name="name" value="<?php echo htmlspecialchars($name) ?>">
                     <br />
-                    <input class="real-input" type="text" name="capture_by" value="<?php echo htmlspecialchars($capture_by) ?>">
+                    <input class="real-input" type="text" name="capture_by"
+                        value="<?php echo htmlspecialchars($capture_by) ?>">
                     <br />
                     <textarea class="textarea-info" name="description">
                         <?php echo htmlspecialchars($description); ?>
@@ -105,8 +106,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "UPDATE Footage SET name = '$name', capture_by='$capture_by', description = '$description' WHERE id = $id";
     if ($connection->query($sql) === TRUE) {
-        "<script>window.location.href = 'footage.php';</script>";
-
+        echo "<script>window.location.href = 'footage.php';</script>";
+        exit;
     } else {
         echo "Error updating record: " . $connection->error;
     }
