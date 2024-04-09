@@ -9,19 +9,16 @@ include_once 'config.php';
 $email = $_POST['email'];
 $password = $_POST['password'];
 // Retrieve user from database
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-
-$conn = new mysqli($servername, $username, $password, $dbname);
+$connection = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+if ($connection->connect_error) {
+  die("Connection failed: " . $connection->connect_error);
 }
 
 //Fetch tour data from the database
 $sql = "SELECT * FROM users WHERE email = '$email'";
-$result = $conn->query($sql);
+$result = $connection->query($sql);
 
 echo 'aq moxvedi?'; 
 if (mysqli_num_rows($result) == 1) {
