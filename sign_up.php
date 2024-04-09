@@ -93,9 +93,9 @@
                     </div>
                     <div class="name">
                         <label for="captcha">Captcha</label>
-                        <input type="text" name="captcha" id="captcha" placeholder="Enter the captcha" required />
+                        <input style="margin: bottom 20px;" type="text" name="captcha" id="captcha" placeholder="Enter the captcha" required />
                         <!-- Display the captcha image -->
-                        <img style="  width: 120px; height: 45px; margin-top:20px;" src="captcha.php" alt="Captcha Image" />
+                        <img style="  width: 120px; height: 60px;" src="captcha.php" alt="Captcha Image" />
                     </div>
                     <button class="btn-send">Sign Up</button>
                 </form>
