@@ -931,4 +931,9 @@ footer .credit a {
   text-align: left; /* Aligning text to the left within the container */
 }
 
+.captcha {
+  width: 120px;
+  height: 60px;
+}
+
 /*# sourceMappingURL=style.css.map */
