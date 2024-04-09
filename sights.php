@@ -74,7 +74,7 @@
             $imageUrl = $row['imageUrl'];
             $sectionId = "section" . $row['id'];
             ?>
-            <a href="#"
+            <a href="sights-description.php?id=<?php echo $row['id']; ?>&name=<?php echo urlencode($name); ?>&info=<?php echo urlencode($info); ?>&imageUrl=<?php echo urlencode($imageUrl); ?>&description=<?php echo urlencode($row['description']); ?>"
               onclick="showSection('<?php echo $sectionId; ?>')">
               <div class="image-box image-1">
                 <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
