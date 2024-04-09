@@ -52,7 +52,7 @@
         <h1>Sign In</h1>
       </div>
       <div class="main-container">
-        <form action="#">
+        <form action="signin_process.php" method="POST">
           <div class="name">
             <label for="email">Email</label>
             <input type="email" placeholder="Enter your email" id="email" name="email" />
@@ -62,7 +62,7 @@
             <input type="password" name="password" id="password" placeholder="Enter your password" />
           </div>
           <div class="buttons"> <!-- Added div for buttons -->
-            <button class="btn-send">Sign In</button>
+            <button type="submit" class="btn-send">Sign In</button>
             <a href="sign_up.php" style="margin-left: 20px;" class="btn-send">Sign Up</a>
           </div>
 
