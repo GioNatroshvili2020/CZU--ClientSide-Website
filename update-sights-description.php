@@ -106,8 +106,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $connection->connect_error);
     }
 
-    $stmt = $connection->prepare("UPDATE Sights SET description=?, info=? WHERE id=?");
-    $stmt->bind_param("ssi", $info, $description, $id);
+    $stmt = $connection->prepare("UPDATE Sights SET info=? WHERE id=?");
+    $stmt->bind_param("ssi", $info, $id);
     $stmt->execute();
 
     if ($stmt->affected_rows > 0) {
