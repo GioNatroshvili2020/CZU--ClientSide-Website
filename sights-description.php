@@ -5,6 +5,7 @@ $name = $_GET['name'];
 $info = $_GET['info'];
 $description = $_GET['description'];
 $imageUrl = $_GET['imageUrl'];
+$sectionId = "section" . $id;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +57,7 @@ $imageUrl = $_GET['imageUrl'];
         </div>
     </header>
     <main>
-        <section class="explore h-entry" id="section<?php echo $id; ?>">
+        <section class="explore h-entry" id="<?php echo $sectionId; ?>">
             <div class="image-box image-1 img-position">
                 <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
                 <div class="overlay"></div>
@@ -135,7 +136,7 @@ $imageUrl = $_GET['imageUrl'];
     </main>
     <script src="public/js/main.js"></script>
     <script src="public/js/sights-description.js"></script>
-    <script src="public/js/common-description.js"></script>
+    <!-- <script src="public/js/common-description.js"></script> -->
 
 </body>
 
