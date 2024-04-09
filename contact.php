@@ -77,7 +77,7 @@ session_start();
             <textarea name="message" id="message" cols="30" rows="10"
               placeholder="Tell us about your interests passion needs and any other details relevent to your trip"></textarea>
           </div>
-          <button type="submit" class="btn-send">Send</button>
+          <button type="submit">Send</button>
         </form>
       </div>
     </section>
