@@ -136,7 +136,7 @@ $sectionId = "section" . $id;
     </main>
     <script src="public/js/main.js"></script>
     <script src="public/js/sights-description.js"></script>
-    <script src="public/js/common-description.js"></script>
+    <!-- <script src="public/js/common-description.js"></script> -->
 
 </body>
 
