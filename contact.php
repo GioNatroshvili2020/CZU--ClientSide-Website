@@ -77,7 +77,7 @@ session_start();
             <textarea name="message" id="message" cols="30" rows="10"
               placeholder="Tell us about your interests passion needs and any other details relevent to your trip"></textarea>
           </div>
-          <button class="btn-send">Send</button>
+          <button type="submit" class="btn-send">Send</button>
         </form>
       </div>
     </section>
@@ -141,3 +141,38 @@ session_start();
 </body>
 
 </html>
+
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Log errors to a file
+ini_set('log_errors', 1);
+ini_set('error_log', 'error.log');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $message = $_POST['message'];
+
+
+    include_once 'config.php';
+    $connection = new mysqli($servername, $username, $password, $dbname);
+
+    if ($connection->connect_error) {
+        die("Connection failed: " . $connection->connect_error);
+    }
+
+    $sql = "INSERT INTO UserContacts (name, phone, message) VALUES ('$name', '$phone', '$message')";
+    if ($connection->query($sql) === TRUE) {
+        echo "<script>window.location.href = 'contact.php';</script>";
+        exit;
+    } else {
+        echo "Error updating record: " . $connection->error;
+    }
+
+    // Close connection
+    $connection->close();
+
+}
+?>
