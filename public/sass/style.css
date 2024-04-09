@@ -949,7 +949,7 @@ footer .credit a {
   color: hsl(0, 0%, 100%);
   width: 100%;
   padding: 20px;
-  resize: horizontal;
+  resize: vertical;
   border: none;
   background-color: transparent;
   overflow-y: auto;
