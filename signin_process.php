@@ -12,7 +12,7 @@ $password = $_POST['password'];
 // Retrieve user from database
 $sql = "SELECT * FROM users WHERE email = '$email'";
 $result = mysqli_query($connection, $sql);
-
+echo "aq movedi";
 if (mysqli_num_rows($result) == 1) {
     // User found
     $user = mysqli_fetch_assoc($result);
@@ -21,8 +21,10 @@ if (mysqli_num_rows($result) == 1) {
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user_name'] = $user['name'];
         $_SESSION['logged_in'] = true;
+        echo "aq moved2";
+
         // Redirect to dashboard or any other page
-        header('Location: dashboard.php');
+        header('Location: index.html');
         exit();
     } else {
         // Password is incorrect
