@@ -73,7 +73,7 @@ $sectionId = "section" . $id;
                     <textarea class="textarea-info">
                         <?php echo $description; ?>
                     </textarea>
-                    <a type="submit" class="ave-button btn btn-get"><span>Save</span></a>
+                    <a type="submit" class="save-button btn btn-get"><span>Save</span></a>
                 </form>
             </div>
         </section>
