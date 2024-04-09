@@ -68,7 +68,7 @@ $sectionId = "section" . $id;
             </div>
             <div class="txt-position">
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-                    <input class="real-input" type="text" name="info" value="<?php echo htmlspecialchars($info); ?>">
+                    <input class="real-input" type="text" name="info" value="<?php echo$info; ?>">
                     <br />
                     <textarea class="textarea-info">
                         <?php echo $description; ?>
