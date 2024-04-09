@@ -63,7 +63,7 @@
           </div>
           <div class="buttons"> <!-- Added div for buttons -->
             <button class="btn-send">Sign In</button>
-            <a href="Sign_up.php" style="margin-left: 20px;" class="btn-send">Sign Up</a>
+            <a href="Sign_up.php" style="margin-left: 20px;" class="btn-send">Ssdsadign Up</a>
           </div>
 
         </form>
