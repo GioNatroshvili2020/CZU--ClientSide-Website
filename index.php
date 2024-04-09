@@ -35,11 +35,11 @@ session_start();
     <div class="right-part">
       <div class="navbar" role="navigation">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li><a href="sights.php">Sights</a></li>
           <li><a href="footage.php">Footage</a></li>
           <li><a href="tours.php">Tours</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.php">Contact</a></li>
           <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
             <li><a href="profile.php">
                 <?php echo $_SESSION['user_name']; ?>
@@ -113,7 +113,7 @@ session_start();
           <li><a href="sights.php">Sights</a></li>
           <li><a href="footage.php">Footage</a></li>
           <li><a href="tours.php">Tours</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="contact.php">Contact</a></li>
         </ul>
       </div>
       <div class="contact-info">
