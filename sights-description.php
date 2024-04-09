@@ -74,15 +74,13 @@ $sectionId = "section" . $id;
                     <?php echo $description; ?>
 
                     <br />
-                    <a style="width: 150px;
-                              display: block;
-                              margin-left: auto;
-                              text-align: center;" class="input-info btn btn-get" href="update-sights-description.php?
+                    <a class="input-info btn btn-get update-button" href="update-sights-description.php?
                 name=<?php echo urlencode($name); ?>&
                 info=<?php echo urlencode($info); ?>&
                 description=<?php echo urlencode($description); ?>&
                 imageUrl=<?php echo urlencode($imageUrl); ?>">
-                        <span>Update info</span></a>
+                        <span>Update info</span>
+                    </a>
                 </p>
             </div>
         </section>

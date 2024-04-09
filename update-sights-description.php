@@ -63,21 +63,16 @@ $sectionId = "section" . $id;
                     <h2>
                         <?php echo $name; ?>
                     </h2>
-                    <p>
-                        <?php echo $info; ?>
-                    </p>
                 </div>
 
             </div>
             <div class="txt-position">
-                <p class="input-info">
-                    <?php echo $description; ?>
-                </p>
+                <input class="real-input" type="text" name="info" value="<?php echo htmlspecialchars($info); ?>">
                 <br />
-                <a style="width: 150px;
-                display: block;
-                margin-left: auto;
-                text-align: center;" class="input-info btn btn-get"><span>Save</span></a>
+                <textarea class="textarea-info">
+                    <?php echo $description; ?>
+                </textarea>
+                <a class="input-info btn btn-get"><span>Save</span></a>
             </div>
         </section>
     </main>
