@@ -56,7 +56,7 @@ $imageUrl = $_GET['imageUrl'];
         </div>
     </header>
     <main>
-        <section class="explore h-entry" id="<?php echo $id; ?>">
+        <section class="explore h-entry" id="sectionId">
             <div class="image-box image-1 img-position">
                 <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
                 <div class="overlay"></div>
