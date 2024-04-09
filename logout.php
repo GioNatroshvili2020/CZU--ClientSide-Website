@@ -10,6 +10,6 @@ $_SESSION = array();
 session_destroy();
 
 // Redirect to the homepage or any other page after logout
-header("Location: index.php");
+header("Location: logoutPage.php");
 exit;
 ?>
