@@ -68,7 +68,8 @@ $sectionId = "section" . $id;
             </div>
             <div class="txt-position">
                 <form action="" method="post">
-                    <input class="real-input" type="text" name="info" value="<?php echo$info; ?>">
+                    <input class="real-input" type="text" name="info" value="<?php echo htmlspecialchars($info) ?>">
+                   <input style="display: hidden;"value="<?php echo $id; ?>" />
                     <br />
                     <textarea class="textarea-info">
                         <?php echo $description; ?>
@@ -94,7 +95,7 @@ ini_set('log_errors', 1);
 ini_set('error_log', 'error.log');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $id = $_GET['id'];
+    $id = $_POST['id'];
     $info = $_POST['info'];
     $description = $_POST['description'];
 
