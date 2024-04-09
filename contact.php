@@ -164,12 +164,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $sql = "INSERT INTO UserContacts (name, phone, message) VALUES ('$name', '$phone', '$message')";
-    if ($connection->query($sql) === TRUE) {
-        echo "<script>window.location.href = 'contact.php';</script>";
-        exit;
-    } else {
-        echo "Error updating record: " . $connection->error;
-    }
+echo $sql;
+    // if ($connection->query($sql) === TRUE) {
+    //     echo "<script>window.location.href = 'contact.php';</script>";
+    //     exit;
+    // } else {
+    //     echo "Error updating record: " . $connection->error;
+    // }
 
     // Close connection
     $connection->close();
