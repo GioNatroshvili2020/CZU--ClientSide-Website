@@ -91,7 +91,8 @@ ini_set('error_log', 'error.log');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_GET['id'];
-    $info = $_POST['info'];
+    $name = $_POST['name'];
+    $capture_by = $_POST['capture_by'];
     $description = $_POST['description'];
 
 
@@ -102,9 +103,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $connection->connect_error);
     }
 
-    $sql = "UPDATE Footage SET info = '$info', description = '$description' WHERE id = $id";
+    $sql = "UPDATE Footage SET name = '$name', capture_by='$capture_by', description = '$description' WHERE id = $id";
     if ($connection->query($sql) === TRUE) {
-        header("Location: sights.php");
+        header("Location: footage.php");
         exit;
     } else {
         echo "Error updating record: " . $connection->error;
