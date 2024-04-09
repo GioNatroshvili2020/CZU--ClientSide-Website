@@ -71,7 +71,7 @@ $sectionId = "section" . $id;
                     <input class="real-input" type="text" name="info" value="<?php echo htmlspecialchars($info) ?>">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <br />
-                    <textarea class="textarea-info">
+                    <textarea class="textarea-info" name="description">
                         <?php echo $description; ?>
                     </textarea>
                     <button type="submit" class="save-button btn btn-get"><span>Save</span></button>
