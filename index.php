@@ -62,7 +62,7 @@ session_start();
   <main>
     <section class="banner" id="banner">
       <div class="banner-text">
-        <h1>KOZEL</h1>
+        <h1>Kazbegi</h1>
         <p>Kazbegi Travel offers a great selection of local tours, including hiking, mountain climbing and
           guided day
           tours. Book online.</p>
