@@ -67,12 +67,14 @@ $sectionId = "section" . $id;
 
             </div>
             <div class="txt-position">
-                <input class="real-input" type="text" name="info" value="<?php echo htmlspecialchars($info); ?>">
-                <br />
-                <textarea class="textarea-info">
-                    <?php echo $description; ?>
-                </textarea>
-                <a class="input-info btn btn-get"><span>Save</span></a>
+                <form action="" method="post">
+                    <input class="real-input" type="text" name="info" value="<?php echo htmlspecialchars($info); ?>">
+                    <br />
+                    <textarea class="textarea-info">
+                        <?php echo $description; ?>
+                    </textarea>
+                    <a type="submit" class="input-info btn btn-get"><span>Save</span></a>
+                </form>
             </div>
         </section>
     </main>
@@ -82,3 +84,31 @@ $sectionId = "section" . $id;
 </body>
 
 </html>
+
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id = $_GET['id'];
+    $info = $_POST['info'];
+    $description = $_POST['description'];
+
+    include_once 'config.php';
+    $connection = new mysqli($servername, $username, $password, $dbname);
+
+    if ($connection->connect_error) {
+        die("Connection failed: " . $connection->connect_error);
+    }
+
+    $stmt = $connection->prepare("UPDATE sights SET info=?, description=? WHERE id=?");
+    $stmt->bind_param("ssi", $info, $description, $id);
+    $stmt->execute();
+
+    if ($stmt->affected_rows > 0) {
+        echo "Sights description updated successfully.";
+    } else {
+        echo "Error updating sights description.";
+    }
+
+    $stmt->close();
+    $connection->close();
+}
+?>
