@@ -74,10 +74,10 @@ $sectionId = "section" . $id;
                     <?php echo $description; ?>
                 </p>
             </div>
-            <div class="buttons"> 
-            <a href="update-sights-description.php" style="margin-left: 20px;" class="btn-send">მავსტყან</a>
-          </div>
         </section>
+        <div class="buttons">
+            <a href="update-sights-description.php" style="margin-left: 20px;" class="btn-send">მავსტყან</a>
+        </div>
     </main>
     <script src="public/js/main.js"></script>
     <script src="public/js/sights-description.js"></script>
