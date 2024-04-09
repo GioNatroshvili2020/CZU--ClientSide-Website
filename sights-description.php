@@ -75,7 +75,7 @@ $sectionId = "section" . $id;
                 </p>
             </div>
         </section>
-        <div class="buttons">
+        <div class="txt-position buttons">
             <a href="update-sights-description.php" style="margin-left: 20px;" class="btn-send">მავსტყან</a>
         </div>
     </main>
