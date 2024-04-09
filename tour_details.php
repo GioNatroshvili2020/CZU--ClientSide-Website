@@ -1,16 +1,26 @@
 <?php
-$id = $_GET['id'];
-$name = $_GET['name'];
-$info = $_GET['info'];
-$description = $_GET['description'];
-$imageUrl = $_GET['image'];
-$price = $_GET['price']; // Add tour price
-$duration = $_GET['duration']; // Add tour duration
-$sectionId = "section" . $id;
+session_start();
+
+// Check if tour details are stored in session
+if (isset($_SESSION['tour_details'])) {
+    // Retrieve tour details from session
+    $id = $_SESSION['tour_details']['id'];
+    $name = $_SESSION['tour_details']['name'];
+    $info = $_SESSION['tour_details']['info']; // Assuming you have this information stored in the session
+    $description = $_SESSION['tour_details']['description'];
+    $imageUrl = $_SESSION['tour_details']['image'];
+    $price = $_SESSION['tour_details']['price'];
+    $duration = $_SESSION['tour_details']['duration'];
+} else {
+    // Handle the case when tour details are not available in session
+    // For example, redirect the user to another page or display an error message
+    // You can customize this based on your application's requirements
+    header("Location: error.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -20,11 +30,9 @@ $sectionId = "section" . $id;
     <link rel="shortcut icon" href="public/images/logo/mountain-fav.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Poppins:wght@400;500;600;700&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="public/sass/style.css" />
 </head>
-
 <body>
     <div id="preloadder"></div>
 
@@ -61,31 +69,16 @@ $sectionId = "section" . $id;
                 <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
                 <div class="overlay"></div>
                 <div class="image-box-text">
-                    <h2>
-                        <?php echo $name; ?>
-                    </h2>
-                    <p>
-                        <?php echo $info; ?>
-                    </p>
-                    <p><strong>Price:</strong> <?php echo $price; ?></p> <!-- Display tour price -->
-                    <p><strong>Duration:</strong> <?php echo $duration; ?></p> <!-- Display tour duration -->
+                    <h2><?php echo $name; ?></h2>
+                    <p><?php echo $info; ?></p>
+                    <p><strong>Price:</strong> <?php echo $price; ?></p>
+                    <p><strong>Duration:</strong> <?php echo $duration; ?></p>
                 </div>
             </div>
             <div class="txt-position">
-                <p class="input-info">
-                    <?php echo $description; ?>
-                </p>
+                <p class="input-info"><?php echo $description; ?></p>
                 <br />
-                <a class="input-info btn btn-get update-button" href="update-tours-description.php?
-                name=<?php echo urlencode($name); ?>&
-                id=<?php echo urlencode($id); ?>&
-                info=<?php echo urlencode($info); ?>&
-                description=<?php echo urlencode($description); ?>&
-                imageUrl=<?php echo urlencode($imageUrl); ?>&
-                price=<?php echo urlencode($price); ?>&
-                duration=<?php echo urlencode($duration); ?>">
-                    <span>Update info</span>
-                </a>
+                <a class="input-info btn btn-get update-button" href="update-tours-description.php?name=<?php echo urlencode($name); ?>&id=<?php echo urlencode($id); ?>&info=<?php echo urlencode($info); ?>&description=<?php echo urlencode($description); ?>&imageUrl=<?php echo urlencode($imageUrl); ?>&price=<?php echo urlencode($price); ?>&duration=<?php echo urlencode($duration); ?>"><span>Update info</span></a>
             </div>
         </section>
     </main>
@@ -93,5 +86,4 @@ $sectionId = "section" . $id;
     <script src="public/js/sights-description.js"></script>
     <!-- <script src="public/js/common-description.js"></script> -->
 </body>
-
 </html>
