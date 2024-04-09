@@ -77,62 +77,6 @@ $sectionId = "section" . $id;
                 </p>
             </div>
         </section>
-        <!-- <section class="explore h-entry" id="section2">
-            <div class="image-box image-1 img-position">
-                <img src="https://images.unsplash.com/photo-1662901984749-0d34b7a39b6f?q=80&w=2572&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Gergeti Trinity Church" />
-                <div class="overlay"></div>
-                <div class="image-box-text">
-                    <h2>Gergeti Trinity</h2>
-                    <p>Built in 14th Century</p>
-                </div>
-
-            </div>
-            <div class="txt-position">
-                <p class="input-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-                    viverra. Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida neque. Eget velit
-                    aliquet sagittis id consectetur purus ut. Nec feugiat nisl pretium fusce id velit ut tortor
-                    pretium. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Malesuada
-                    fames ac turpis egestas maecenas pharetra convallis posuere. Sed vulputate mi sit amet mauris
-                    commodo. Eu consequat ac felis donec et odio. Adipiscing at in tellus integer feugiat. Fames ac
-                    turpis egestas maecenas pharetra convallis posuere morbi. Sit amet commodo nulla facilisi.
-                    Dapibus ultrices in iaculis nunc sed. In fermentum et sollicitudin ac orci phasellus egestas
-                    tellus rutrum. Molestie ac feugiat sed lectus vestibulum mattis ullamcorper. Ultrices sagittis
-                    orci a scelerisque purus semper eget. Arcu cursus vitae congue mauris rhoncus aenean vel. Purus
-                    gravida quis blandit turpis. Nam at lectus urna duis convallis convallis tellus id.
-                </p>
-            </div>
-        </section>
-        <section class="explore h-entry" id="section3">
-            <div class="image-box image-1 img-position">
-                <img src="https://www.goingthewholehogg.com/wp-content/uploads/Kelitsadi-Lake-Landscape-Kazbegi-Georgia-M.jpg"
-                    alt="Kelitsadi Lake" />
-                <div class="overlay"></div>
-                <div class="image-box-text">
-                    <h2>Kelitsadi Lake</h2>
-                    <p>Built in 14th Century</p>
-                </div>
-
-            </div>
-            <div class="txt-position">
-                <p class="input-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut
-                    labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-                    viverra. Sed viverra ipsum nunc aliquet bibendum enim facilisis gravida neque. Eget velit
-                    aliquet sagittis id consectetur purus ut. Nec feugiat nisl pretium fusce id velit ut tortor
-                    pretium. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan sit. Malesuada
-                    fames ac turpis egestas maecenas pharetra convallis posuere. Sed vulputate mi sit amet mauris
-                    commodo. Eu consequat ac felis donec et odio. Adipiscing at in tellus integer feugiat. Fames ac
-                    turpis egestas maecenas pharetra convallis posuere morbi. Sit amet commodo nulla facilisi.
-                    Dapibus ultrices in iaculis nunc sed. In fermentum et sollicitudin ac orci phasellus egestas
-                    tellus rutrum. Molestie ac feugiat sed lectus vestibulum mattis ullamcorper. Ultrices sagittis
-                    orci a scelerisque purus semper eget. Arcu cursus vitae congue mauris rhoncus aenean vel. Purus
-                    gravida quis blandit turpis. Nam at lectus urna duis convallis convallis tellus id.
-                </p>
-            </div>
-        </section> -->
     </main>
     <script src="public/js/main.js"></script>
     <script src="public/js/sights-description.js"></script>
