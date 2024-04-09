@@ -11,8 +11,17 @@ $password = $_POST['password'];
 // Retrieve user from database
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+//Fetch tour data from the database
 $sql = "SELECT * FROM users WHERE email = '$email'";
-$result = mysqli_query($conn, $sql);
+$result = $conn->query($sql);
 
 echo 'aq moxvedi?'; 
 if (mysqli_num_rows($result) == 1) {
