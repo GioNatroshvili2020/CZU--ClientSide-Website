@@ -2,23 +2,28 @@
 <?php
 //session_start();
 
-// Include database connection
 include_once 'config.php';
-
-// Retrieve form data
-$email = $_POST['email'];
-$password = $_POST['password'];
-// Retrieve user from database
 $connection = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($connection->connect_error) {
   die("Connection failed: " . $connection->connect_error);
 }
+else{
+    echo 'didi yle';
+}
+
+
+$email = $_POST['email'];
+$password = $_POST['password'];
+// Retrieve user from database
 
 //Fetch tour data from the database
 $sql = "SELECT * FROM users WHERE email = '$email'";
 $result = $connection->query($sql);
+
+
+
 
 echo 'aq moxvedi?'; 
 // if (mysqli_num_rows($result) == 1) {
@@ -43,6 +48,6 @@ echo 'aq moxvedi?';
 //     echo "Invalid email or password";
 // }
 
-// Close connection
+// // Close connection
 mysqli_close($connection);
 ?>
