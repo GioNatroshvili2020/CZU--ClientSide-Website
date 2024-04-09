@@ -107,12 +107,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $sql = "UPDATE Sights SET info = '$info', description = '$description' WHERE id = $id";    
-    echo $sql;
-    // if ($connection->query($sql) === TRUE) {
-    //     echo "Record updated successfully";
-    // } else {
-    //     echo "Error updating record: " . $connection->error;
-    // }
+    if ($connection->query($sql) === TRUE) {
+        echo "Record updated successfully";
+    } else {
+        echo "Error updating record: " . $connection->error;
+    }
     
     // Close connection
     $connection->close();    
