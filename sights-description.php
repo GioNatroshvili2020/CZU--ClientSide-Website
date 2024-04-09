@@ -1,5 +1,4 @@
 <?php
-// Retrieve tour details from URL parameters
 $id = $_GET['id'];
 $name = $_GET['name'];
 $info = $_GET['info'];
@@ -22,7 +21,6 @@ $sectionId = "section" . $id;
     <link
         href="https://fonts.googleapis.com/css2?family=Dosis:wght@800&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
-    <!-- css -->
     <link rel="stylesheet" href="public/sass/style.css" />
 </head>
 
@@ -46,7 +44,7 @@ $sectionId = "section" . $id;
                     <li><a href="footage.html">Footage</a></li>
                     <li><a href="tours.php">Tours</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="sign_in.php">Sign In</a></li> <!-- Added Sign In item -->
+                    <li><a href="sign_in.php">Sign In</a></li>
                 </ul>
             </div>
             <div class="ham-menu">
