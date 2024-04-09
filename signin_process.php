@@ -15,7 +15,7 @@ $sql = "SELECT * FROM users WHERE email = '$email'";
 $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) == 1) {
     // User found
-    echo 'aqane var'
+    echo 'aqane var';
     $user = mysqli_fetch_assoc($result);
     if (password_verify($password, $user['password_hash'])) {
         // Password is correct, start session and set user data
