@@ -72,7 +72,7 @@ $sectionId = "section" . $id;
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <br />
                     <textarea class="textarea-info" name="description">
-                        <?php echo $description; ?>
+                        <?php echo htmlspecialchars($description); ?>
                     </textarea>
                     <button type="submit" class="save-button btn btn-get"><span>Save</span></button>
                 </form>
@@ -113,7 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($stmt->affected_rows > 0) {
         echo "Sights description updated successfully.";
     } else {
-        echo "Error updating sights description.";
+        echo "Error updating sights description: " . $stmt->error;
     }
 
     $stmt->close();
