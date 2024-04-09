@@ -106,17 +106,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $connection->connect_error);
     }
 
-    $stmt = $connection->prepare("UPDATE Sights SET info=?, description=? WHERE id=?");
-    $stmt->bind_param("ssi", $info, $description, $id);
-    $stmt->execute();
-
-    if ($stmt->affected_rows > 0) {
-        echo "Sights description updated successfully.";
+    $sql = "UPDATE Sights SET info = '$info', description = '$description' WHERE id = $id";    
+    if ($connection->query($sql) === TRUE) {
+        echo "Record updated successfully";
     } else {
-        echo "Error updating sights description: " . $stmt->error;
+        echo "Error updating record: " . $connection->error;
     }
-
-    $stmt->close();
-    $connection->close();
+    
+    // Close connection
+    $connection->close();    
+  
 }
 ?>
