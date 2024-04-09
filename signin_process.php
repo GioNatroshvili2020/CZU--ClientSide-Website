@@ -1,26 +1,37 @@
 <!-- signin_process.php -->
 <?php
-//session_start();
 
-// Include database connection
 include_once 'config.php';
-
-// Retrieve form data
-$email = $_POST['email'];
-$password = $_POST['password'];
-// Retrieve user from database
 $connection = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($connection->connect_error) {
   die("Connection failed: " . $connection->connect_error);
 }
+else{
+    echo 'didi yle';
+}
+// session_start();
 
-//Fetch tour data from the database
-$sql = "SELECT * FROM users WHERE email = '$email'";
-$result = $connection->query($sql);
+// // Include database connection
+// include_once 'config.php';
 
-echo 'aq moxvedi?'; 
+// // Retrieve form data
+// $email = $_POST['email'];
+// $password = $_POST['password'];
+// // Retrieve user from database
+// $connection = new mysqli($servername, $username, $password, $dbname);
+
+// // Check connection
+// if ($connection->connect_error) {
+//   die("Connection failed: " . $connection->connect_error);
+// }
+
+// //Fetch tour data from the database
+// $sql = "SELECT * FROM users WHERE email = '$email'";
+// $result = $connection->query($sql);
+
+// echo 'aq moxvedi?'; 
 // if (mysqli_num_rows($result) == 1) {
 //     // User found
 //     echo 'aqane var';
@@ -43,6 +54,6 @@ echo 'aq moxvedi?';
 //     echo "Invalid email or password";
 // }
 
-// Close connection
-mysqli_close($connection);
+// // Close connection
+// mysqli_close($connection);
 ?>
