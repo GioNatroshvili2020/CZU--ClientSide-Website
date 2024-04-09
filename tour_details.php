@@ -1,20 +1,43 @@
 <?php
 session_start();
+include_once 'config.php';
 
-// Check if tour details are stored in session
-if (isset($_SESSION['tour_details'])) {
-    // Retrieve tour details from session
-    $id = $_SESSION['tour_details']['id'];
-    $name = $_SESSION['tour_details']['name'];
-    $info = $_SESSION['tour_details']['info']; // Assuming you have this information stored in the session
-    $description = $_SESSION['tour_details']['description'];
-    $imageUrl = $_SESSION['tour_details']['image'];
-    $price = $_SESSION['tour_details']['price'];
-    $duration = $_SESSION['tour_details']['duration'];
+// Check if tour ID is provided in the URL
+if (isset($_GET['id'])) {
+    // Sanitize and store the tour ID from the URL
+    $id = $_GET['id'];
+    
+    // Fetch tour data from the database based on the provided tour ID
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $sql = "SELECT * FROM Tours WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        // Tour data found, fetch and display it
+        $row = $result->fetch_assoc();
+        $name = $row["name"];
+        $info = $row["info"]; // Assuming you have this information stored in the database
+        $description = $row["description"];
+        $imageUrl = $row["image"];
+        $price = $row["price"];
+        $duration = $row["duration"];
+    } else {
+        // Tour not found with the provided ID, handle this case (e.g., redirect or show error)
+        header("Location: error.php");
+        exit();
+    }
+
+    $stmt->close();
+    $conn->close();
 } else {
-    // Handle the case when tour details are not available in session
-    // For example, redirect the user to another page or display an error message
-    // You can customize this based on your application's requirements
+    // Tour ID not provided in the URL, handle this case (e.g., redirect or show error)
     header("Location: error.php");
     exit();
 }

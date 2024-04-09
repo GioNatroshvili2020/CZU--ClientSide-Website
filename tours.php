@@ -3,44 +3,6 @@
 <?php
 session_start();
 include_once 'config.php';
-
-// Function to store tour details in session
-function storeTourDetailsInSession($id, $name, $description, $image, $price, $duration)
-{
-    $_SESSION['tour_details'] = array(
-        'id' => $id,
-        'name' => $name,
-        'description' => $description,
-        'image' => $image,
-        'price' => $price,
-        'duration' => $duration
-    );
-}
-
-// Check if the tour details are already stored in session
-if (!isset($_SESSION['tour_details'])) {
-    // Fetch tour data from the database
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    $sql = "SELECT * FROM Tours";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-        // Output data of each row
-        while ($row = $result->fetch_assoc()) {
-            // Store tour details in session
-            storeTourDetailsInSession($row["id"], $row["name"], $row["description"], $row["image"], $row["price"], $row["duration"]);
-        }
-    } else {
-        echo "0 results";
-    }
-
-    $conn->close();
-}
 ?>
 
 <head>
@@ -120,7 +82,7 @@ if (!isset($_SESSION['tour_details'])) {
                     while ($row = $result->fetch_assoc()) {
                         echo '<div class="tour-cards" data-name="' . $row["name"] . '" data-description="' . $row["description"] . '" data-image="' . $row["image"] . 'id="' . urlencode($row["id"]) . '">';
                         echo '<div class="image-box">';
-                        echo '<a href="tour_details.php?id=' . $row["id"] . '">';
+                        echo '<a href="tour_details.php?id=' . urlencode($row["id"]) . '">';
                         echo '<img src="' . $row["image"] . '" alt="' . $row["name"] . '" />';
                         echo '</a>';
                         echo '<div class="overlay"></div>';
@@ -129,7 +91,7 @@ if (!isset($_SESSION['tour_details'])) {
                         echo '</div>';
                         echo '</div>';
                         echo '<div class="tour-cards-text">';
-                        echo '<a href="tour_details.php?id=' . $row["id"] . '">';
+                        echo '<a href="tour_details.php?id=' . urlencode($row["id"]) . '">';
                         echo '<h1>' . $row["name"] . '</h1>';
                         echo '</a>';
                         echo '<p>' . $row["description"] . '</p>';
@@ -144,13 +106,14 @@ if (!isset($_SESSION['tour_details'])) {
                         echo '<p>$' . $row["price"] . '<span>Per person</span></p>';
                         echo '<h2>' . $row["duration"] . ' Days</h2>';
                         echo '</div>';
-                        echo '<a href="tour_details.php?id=' . $row["id"] . '" class="btn-map">View Details</a>';
+                        echo '<a href="tour_details.php?id=' . urlencode($row["id"]) . '" class="btn-map">View Details</a>';
                         echo '</div>';
                         echo '</div>';
                     }
                 } else {
                     echo "0 results";
                 }
+
                 $conn->close();
                 ?>
             </div>
