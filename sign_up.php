@@ -57,15 +57,15 @@
                         <label for="name">Name</label>
                         <input type="text" placeholder="Enter your name" id="name" name="name" />
                     </div>
-                    <div class="name,email">
+                    <div class="name">
                         <label for="email">Email</label>
                         <input type="email" placeholder="Enter your email" id="email" name="email" />
                     </div>
-                    <div class="name, password">
+                    <div class="name">
                         <label for="password">Password</label>
                         <input type="password" name="password" id="password" placeholder="Enter your password" />
                     </div>
-                    <div class="name, confirm-password">
+                    <div class="name">
                         <label for="confirm-password">Confirm Password</label>
                         <input type="password" name="confirm-password" id="confirm-password"
                             placeholder="Confirm your password" />
