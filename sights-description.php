@@ -103,13 +103,13 @@ $user_id = $_SESSION['user_id']; // Assuming you have user_id in the session
                     <?php echo $description; ?>
                 </p>
                 <br />
-                <a class="input-info btn btn-get update-button" href="update-sights-description.php?
+                <a <?php echo $update_info_button  ?> class="input-info btn btn-get update-button" href="update-sights-description.php?
                 name=<?php echo urlencode($name); ?>&
                 id=<?php echo urlencode($id); ?>&
                 info=<?php echo urlencode($info); ?>&
                 description=<?php echo urlencode($description); ?>&
                 imageUrl=<?php echo urlencode($imageUrl); ?>">
-                    <span <?php echo $update_info_button  ?>>Update info</span>
+                    <span >Update info</span>
                 </a>
             </div>
         </section>
