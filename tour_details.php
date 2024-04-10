@@ -79,8 +79,6 @@ if (isset($_GET['id'])) {
                     <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
                         <li><a href="#">
                                 <?php echo $_SESSION['user_name']; ?>
-                                <?php echo $_SESSION['user_id']; ?>
-
                             </a></li>
                         <li><a href="logout.php">Logout</a></li>
                     <?php else: ?>
@@ -102,8 +100,6 @@ if (isset($_GET['id'])) {
                 <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
                 <div class="overlay"></div>
                 <div class="image-box-text">
-                    <h1><?php echo json_encode($_SESSION);?></h1>
-
                     <h2><?php echo $name; ?></h2>
                     <p><?php echo $info; ?></p>
                     <p><strong>Price:</strong> <?php echo $price; ?></p>
