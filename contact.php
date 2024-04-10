@@ -166,11 +166,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $sql = "INSERT INTO UserContacts (name, contact_info, message) VALUES ('$name', '$contact_info', '$message')";
+    echo "<script>window.location.href = 'footage.php';</script>";
     echo $sql;
     if ($connection->query($sql) === TRUE) {
       // echo "<script>window.location.href = 'contact.php';</script>";
       echo "New record created successfully";
-      header("Location: logoutPage.php");
       exit;
     } else {
       echo "Error updating record: " . $connection->error;
