@@ -25,7 +25,7 @@ if (mysqli_num_rows($result) == 1) {
         header('Location: index.php');
         exit();
     } else {
-        $_SESSION['error_message'] = "Invalid email or password";
+        echo '<div style="color: red;">' . $_SESSION['error_message'] . '</div>';
         header('Location: sign_in.php');
         exit();
     }
