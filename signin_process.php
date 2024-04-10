@@ -35,6 +35,7 @@ if (mysqli_num_rows($result) == 1) {
         exit();
     } else {
         // Password is incorrect
+        header('Location: sign_in.php');
         echo "Invalid email or password";
     }
 } else {
