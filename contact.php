@@ -170,6 +170,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($connection->query($sql) === TRUE) {
       // echo "<script>window.location.href = 'contact.php';</script>";
       echo "New record created successfully";
+      header("Location: logoutPage.php");
       exit;
     } else {
       echo "Error updating record: " . $connection->error;
