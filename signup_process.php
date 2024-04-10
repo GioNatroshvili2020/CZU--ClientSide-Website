@@ -13,6 +13,7 @@ $captcha = $_POST['captcha'];
 
 session_start();
 if ($_SESSION['captcha'] != $captcha) {
+    header('Location: sign_up.php');
     die("Invalid captcha. Please try again.");
 }
 
