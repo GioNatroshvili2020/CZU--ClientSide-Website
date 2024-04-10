@@ -146,7 +146,6 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-// Log errors to a file
 ini_set('log_errors', 1);
 ini_set('error_log', 'error.log');
 
@@ -169,14 +168,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<script>window.location.href = 'response.php';</script>";
     echo $sql;
     if ($connection->query($sql) === TRUE) {
-      // echo "<script>window.location.href = 'contact.php';</script>";
       echo "New record created successfully";
       exit;
     } else {
       echo "Error updating record: " . $connection->error;
     }
-
-    // Close connection
     $connection->close();
   }
 }

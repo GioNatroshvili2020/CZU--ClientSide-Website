@@ -66,7 +66,7 @@ session_start();
       <div class="main-container">
         <form action="#">
         <div class="buttons">
-            <a href="index.php" style="margin-left: 20px;" class="btn-send">Go To Homepage</a>
+            <a href="index.php" class="btn-send">Go To Homepage</a>
           </div>
         </form>
       </div>
