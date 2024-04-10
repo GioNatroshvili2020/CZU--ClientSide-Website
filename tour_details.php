@@ -18,6 +18,30 @@ if (isset($_GET['id'])) {
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
+    $update_info_button = 'style="display:none"';
+
+
+    $user_id = $_SESSION['user_id']; // Assuming you have user_id in the session
+    $isAdminSql = "SELECT IsAdmin FROM Users WHERE id = '$user_id'";
+    $queryRes= $conn->query($isAdminSql);
+    error_log(json_encode($queryRes));
+    error_log('yle');
+    if ($queryRes && $queryRes->num_rows > 0) {
+        $row = $queryRes->fetch_assoc();
+        $is_admin = $row['IsAdmin'];
+
+        // If the user is admin, display the "update info" button
+        if ($is_admin != 1) {
+            $update_info_button = 'style="display:none"';
+        } else {
+            $update_info_button = ''; // If not admin, don't show the button
+        }
+    } else {
+        // Failed to fetch user data
+        $update_info_button = 'style="display:none"'; // Don't show the button
+    }
+
+
 
     if ($result->num_rows > 0) {
         // Tour data found, fetch and display it
@@ -109,7 +133,7 @@ if (isset($_GET['id'])) {
             <div class="txt-position">
                 <p class="input-info"><?php echo $description; ?></p>
                 <br />
-                <a class="input-info btn btn-get update-button" href="update-tours-description.php?name=<?php echo urlencode($name); ?>&id=<?php echo urlencode($id); ?>&info=<?php echo urlencode($info); ?>&description=<?php echo urlencode($description); ?>&imageUrl=<?php echo urlencode($imageUrl); ?>&price=<?php echo urlencode($price); ?>&duration=<?php echo urlencode($duration); ?>"><span>Update info</span></a>
+                <a  <?php echo $update_info_button  ?> class="input-info btn btn-get update-button" href="update-tours-description.php?name=<?php echo urlencode($name); ?>&id=<?php echo urlencode($id); ?>&info=<?php echo urlencode($info); ?>&description=<?php echo urlencode($description); ?>&imageUrl=<?php echo urlencode($imageUrl); ?>&price=<?php echo urlencode($price); ?>&duration=<?php echo urlencode($duration); ?>"><span>Update info</span></a>
             </div>
         </section>
     </main>
