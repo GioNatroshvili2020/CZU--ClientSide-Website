@@ -60,24 +60,14 @@ session_start();
   <main>
     <section class="contact h-card" id="contact">
       <div class="main-text">
-        <h1>Get in touch</h1>
+        <h1>Thanks for Contacting us!</h1>
+        <h5>Yunis is working on your request</h5>
       </div>
       <div class="main-container">
-        <form action="" method="post">
-          <div class="name">
-            <label for="name">Name</label>
-            <input type="text" placeholder="Enter Your name " id="name" name="name" class="fn" />
+        <form action="#">
+        <div class="buttons">
+            <a href="index.php" style="margin-left: 20px;" class="btn-send">Go To Homepage</a>
           </div>
-          <div class="phone">
-            <label for="phone">Email or Phone</label>
-            <input type="text" name="contact_info" id="phone" class="tel" placeholder="Enter Your Number or phone" />
-          </div>
-          <div class="message">
-            <label for="message">Your message</label>
-            <textarea name="message" id="message" cols="30" rows="10"
-              placeholder="Tell us about your interests passion needs and any other details relevent to your trip"></textarea>
-          </div>
-          <button type="submit" class="btn-send">Send</button>
         </form>
       </div>
     </section>
@@ -141,43 +131,3 @@ session_start();
 </body>
 
 </html>
-
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-// Log errors to a file
-ini_set('log_errors', 1);
-ini_set('error_log', 'error.log');
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (!empty($_POST['name']) && !empty($_POST['contact_info']) && !empty($_POST['message'])) {
-
-    $name = $_POST['name'];
-    $contact_info = $_POST['contact_info'];
-    $message = $_POST['message'];
-
-
-    include_once 'config.php';
-    $connection = new mysqli($servername, $username, $password, $dbname);
-
-    if ($connection->connect_error) {
-      die("Connection failed: " . $connection->connect_error);
-    }
-
-    $sql = "INSERT INTO UserContacts (name, contact_info, message) VALUES ('$name', '$contact_info', '$message')";
-    echo "<script>window.location.href = 'response.php';</script>";
-    echo $sql;
-    if ($connection->query($sql) === TRUE) {
-      // echo "<script>window.location.href = 'contact.php';</script>";
-      echo "New record created successfully";
-      exit;
-    } else {
-      echo "Error updating record: " . $connection->error;
-    }
-
-    // Close connection
-    $connection->close();
-  }
-}
-?>
