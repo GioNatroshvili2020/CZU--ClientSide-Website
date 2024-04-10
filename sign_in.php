@@ -61,7 +61,7 @@
             <label for="password">Password</label>
             <input type="password" name="password" id="password" placeholder="Enter your password" />
           </div>
-          <div class="buttons"> <!-- Added div for buttons -->
+          <div class="buttons">
             <button type="submit" class="btn-send">Sign In</button>
             <a href="sign_up.php" style="margin-left: 20px;" class="btn-send">Sign Up</a>
           </div>

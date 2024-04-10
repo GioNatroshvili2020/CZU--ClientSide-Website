@@ -61,12 +61,12 @@ session_start();
     <section class="contact h-card" id="contact">
       <div class="main-text">
         <h1>Thanks for Contacting us!</h1>
-        <h5>Yunis is working on your request</h5>
+        <h3>Yunis is working on your request</h3>
       </div>
       <div class="main-container">
         <form action="#">
         <div class="buttons">
-            <a href="index.php" style="margin-left: 20px;" class="btn-send">Go To Homepage</a>
+            <a href="index.php" class="btn-send">Go To Homepage</a>
           </div>
         </form>
       </div>
