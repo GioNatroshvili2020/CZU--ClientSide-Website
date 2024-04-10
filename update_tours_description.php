@@ -10,6 +10,7 @@ $sectionId = "section" . $id;
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -24,39 +25,49 @@ $sectionId = "section" . $id;
     <!-- css -->
     <link rel="stylesheet" href="public/sass/style.css" />
 </head>
-<body>
-<div id="preloadder"></div>
 
-<header class="primary-header">
-    <div class="left-part">
-        <a href="index.php">
-            <img src="public/images/logo/mountain.png" alt="Kazbegi Logo" />
-            <div class="logo">
-                <h1>Kazbegi</h1>
+<body>
+    <div id="preloadder"></div>
+
+    <header class="primary-header">
+        <div class="left-part">
+            <a href="index.php">
+                <img src="public/images/logo/mountain.png" alt="Kazbegi Logo" />
+                <div class="logo">
+                    <h1>Kazbegi</h1>
+                </div>
+            </a>
+        </div>
+        <div class="right-part">
+            <div class="navbar" role="navigation">
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="sights.php">Sights</a></li>
+                    <li><a href="footage.php">Footage</a></li>
+                    <li><a href="tours.php">Tours</a></li>
+                    <li><a href="contact.php">Contact</a></li>
+                    <li><a href="sign_in.php">Sign In</a></li>
+                </ul>
             </div>
-        </a>
-    </div>
-    <div class="right-part">
-        <div class="navbar" role="navigation">
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="sights.php">Sights</a></li>
-                <li><a href="footage.php">Footage</a></li>
-                <li><a href="tours.php">Tours</a></li>
-                <li><a href="contact.php">Contact</a></li>
-                <li><a href="sign_in.php">Sign In</a></li>
-            </ul>
+            <div class="ham-menu">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+            </div>
         </div>
-        <div class="ham-menu">
-            <div class="line line-1"></div>
-            <div class="line line-2"></div>
-            <div class="line line-3"></div>
-        </div>
-    </div>
-</header>
+    </header>
     <main>
         <section class="explore h-entry" id="<?php echo $sectionId; ?>">
-            <!-- Your HTML section here -->
+            <div class="image-box image-1 img-position">
+                <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
+                <div class="overlay"></div>
+                <div class="image-box-text">
+                    <h2>
+                        <?php echo $name; ?>
+                    </h2>
+                </div>
+
+            </div>
             <div class="txt-position">
                 <form action="" method="post">
                     <input class="real-input" type="text" name="info" value="<?php echo htmlspecialchars($info) ?>">
@@ -70,7 +81,9 @@ $sectionId = "section" . $id;
         </section>
     </main>
     <script src="public/js/main.js"></script>
-    <script src="public/js/sights-description.js"></script></body>
+    <script src="public/js/sights-description.js"></script>
+</body>
+
 </html>
 <?php
 error_reporting(E_ALL);
@@ -92,16 +105,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $connection->connect_error);
     }
 
-    $sql = "UPDATE Tours SET  description = '$description' WHERE id = $id";    
+    $sql = "UPDATE Tours SET  description = '$description' WHERE id = $id";
     if ($connection->query($sql) === TRUE) {
         header("Location: tours.php");
         exit;
     } else {
         echo "Error updating record: " . $connection->error;
     }
-    
+
     // Close connection
-    $connection->close();    
-    
+    $connection->close();
+
 }
 ?>
