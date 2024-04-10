@@ -92,6 +92,8 @@ if (isset($_GET['id'])) {
                 <img src="<?php echo $imageUrl; ?>" alt="<?php echo $name; ?>" />
                 <div class="overlay"></div>
                 <div class="image-box-text">
+                    <h1><?php echo $_SESSION['user_id']?></h1>
+
                     <h2><?php echo $name; ?></h2>
                     <p><?php echo $info; ?></p>
                     <p><strong>Price:</strong> <?php echo $price; ?></p>

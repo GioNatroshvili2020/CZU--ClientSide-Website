@@ -40,6 +40,7 @@ include_once 'config.php';
                     <li><a href="footage.php">Footage</a></li>
                     <li><a href="tours.php">Tours</a></li>
                     <li><a href="contact.php">Contact</a></li>
+
                     <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
                         <li><a href="#">
                                 <?php echo $_SESSION['user_name']; ?>
