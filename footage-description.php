@@ -10,6 +10,31 @@ $sectionId = "section" . $id;
 <html lang="en">
 <?php
 session_start();
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$user_id = $_SESSION['user_id']; // Assuming you have user_id in the session
+$isAdminSql = "SELECT IsAdmin FROM users WHERE id = '$user_id'";
+$queryRes = $conn->query($isAdminSql);
+
+if ($queryRes && $queryRes->num_rows > 0) {
+    $row = $queryRes->fetch_assoc();
+    $is_admin = $row['IsAdmin'];
+
+    // If the user is admin, display the "update info" button
+    if ($is_admin != 1) {
+        $update_info_button = 'style="display:none"';
+    } else {
+        $update_info_button = ''; // If not admin, don't show the button
+    }
+} else {
+    // Failed to fetch user data
+    $update_info_button = 'style="display:none"'; // Don't show the button
+}
+$conn->close();
+
 ?>
 
 <head>
@@ -86,7 +111,7 @@ session_start();
                     <?php echo $description; ?>
                 </p>
                 <br />
-                <a class="input-info btn btn-get update-button" href="update-footage-description.php?
+                <a <?php echo $update_info_button ?> class="input-info btn btn-get update-button" href="update-footage-description.php?
                 name=<?php echo urlencode($name); ?>&
                 id=<?php echo urlencode($id); ?>&
                 capture_by=<?php echo urlencode($capture_by); ?>&
