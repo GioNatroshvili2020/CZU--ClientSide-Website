@@ -5,6 +5,33 @@ $info = $_GET['info'];
 $description = $_GET['description'];
 $imageUrl = $_GET['imageUrl'];
 $sectionId = "section" . $id;
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$user_id = $_SESSION['user_id']; // Assuming you have user_id in the session
+    $isAdminSql = "SELECT IsAdmin FROM users WHERE id = '$user_id'";
+    $queryRes= $conn->query($isAdminSql);
+
+    if ($queryRes && $queryRes->num_rows > 0) {
+        $row = $queryRes->fetch_assoc();
+        $is_admin = $row['IsAdmin'];
+
+        // If the user is admin, display the "update info" button
+        if ($is_admin != 1) {
+            $update_info_button = 'style="display:none"';
+        } else {
+            $update_info_button = ''; // If not admin, don't show the button
+        }
+    } else {
+        // Failed to fetch user data
+        $update_info_button = 'style="display:none"'; // Don't show the button
+    }
+
+    $conn->close();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,7 +107,7 @@ $sectionId = "section" . $id;
                 info=<?php echo urlencode($info); ?>&
                 description=<?php echo urlencode($description); ?>&
                 imageUrl=<?php echo urlencode($imageUrl); ?>">
-                    <span>Update info</span>
+                    <span <?php echo $update_info_button  ?>>Update info</span>
                 </a>
             </div>
         </section>
