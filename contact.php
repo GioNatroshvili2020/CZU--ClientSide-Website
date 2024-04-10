@@ -165,9 +165,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $sql = "INSERT INTO UserContacts (name, contact_info, message) VALUES ('$name', '$contact_info', '$message')";
-    echo "<script>window.location.href = 'response.php';</script>";
     echo $sql;
     if ($connection->query($sql) === TRUE) {
+      echo "<script>window.location.href = 'response.php';</script>";
       echo "New record created successfully";
       exit;
     } else {
