@@ -2,41 +2,45 @@
 session_start();
 include_once 'config.php';
 
-//Check if the user is logged in
-if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+// Check if tour ID is provided in the URL
+if (isset($_GET['id'])) {
+    // Sanitize and store the tour ID from the URL
+    $id = $_GET['id'];
+    
+    // Fetch tour data from the database based on the provided tour ID
     $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Fetch user data to check if the user is admin
-    $user_id = $_SESSION['user_id']; // Assuming you have user_id in the session
-    $sql = "SELECT IsAdmin FROM Users WHERE id = '$user_id'";
-    $result = $conn->query($sql);
+    $sql = "SELECT * FROM Tours WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    if ($result && $result->num_rows > 0) {
+    if ($result->num_rows > 0) {
+        // Tour data found, fetch and display it
         $row = $result->fetch_assoc();
-        $is_admin = $row['IsAdmin'];
-
-        // If the user is admin, display the "update info" button
-        if ($is_admin == 1) {
-            $update_info_button = '<button class="update-info-btn">Update Info</button>';
-        } else {
-            $update_info_button = ''; // If not admin, don't show the button
-        }
+        $name = $row["name"];
+        $info = $row["info"]; // Assuming you have this information stored in the database
+        $description = $row["description"];
+        $imageUrl = $row["image"];
+        $price = $row["price"];
+        $duration = $row["duration"];
     } else {
-        // Failed to fetch user data
-        $update_info_button = ''; // Don't show the button
+        // Tour not found with the provided ID, handle this case (e.g., redirect or show error)
+        header("Location: error.php");
+        exit();
     }
 
+    $stmt->close();
     $conn->close();
 } else {
-    // User is not logged in, don't show the button
-    $update_info_button = '';
+    // Tour ID not provided in the URL, handle this case (e.g., redirect or show error)
+    header("Location: error.php");
+    exit();
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -105,7 +109,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
             <div class="txt-position">
                 <p class="input-info"><?php echo $description; ?></p>
                 <br />
-                <?php echo $update_info_button; ?>
+                <a class="input-info btn btn-get update-button" href="update-tours-description.php?name=<?php echo urlencode($name); ?>&id=<?php echo urlencode($id); ?>&info=<?php echo urlencode($info); ?>&description=<?php echo urlencode($description); ?>&imageUrl=<?php echo urlencode($imageUrl); ?>&price=<?php echo urlencode($price); ?>&duration=<?php echo urlencode($duration); ?>"><span>Update info</span></a>
             </div>
         </section>
     </main>
