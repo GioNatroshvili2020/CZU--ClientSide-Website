@@ -18,21 +18,21 @@ if (isset($_GET['id'])) {
     $stmt->bind_param("i", $id);
     $stmt->execute();
     $result = $stmt->get_result();
-    
-    if ($result && $result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $is_admin = $row['IsAdmin'];
-        
-        // If the user is admin, display the "update info" button
-        if ($is_admin != 1) {
-            $update_info_button = 'style="display:none"';
-        } else {
-            $update_info_button = ''; // If not admin, don't show the button
-        }
-    } else {
-        // Failed to fetch user data
-        $update_info_button = 'style="display:none"'; // Don't show the button
-    }
+    $update_info_button = 'style="display:none"';
+    // if ($result && $result->num_rows > 0) {
+    //     $row = $result->fetch_assoc();
+    //     $is_admin = $row['IsAdmin'];
+
+    //     // If the user is admin, display the "update info" button
+    //     if ($is_admin != 1) {
+    //         $update_info_button = 'style="display:none"';
+    //     } else {
+    //         $update_info_button = ''; // If not admin, don't show the button
+    //     }
+    // } else {
+    //     // Failed to fetch user data
+    //     $update_info_button = 'style="display:none"'; // Don't show the button
+    // }
 
 
     $user_id = $_SESSION['user_id']; // Assuming you have user_id in the session
