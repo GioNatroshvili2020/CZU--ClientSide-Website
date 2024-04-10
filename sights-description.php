@@ -5,6 +5,7 @@ $info = $_GET['info'];
 $description = $_GET['description'];
 $imageUrl = $_GET['imageUrl'];
 $sectionId = "section" . $id;
+session_start();
 
 include_once 'config.php';
 
@@ -14,25 +15,25 @@ if ($conn->connect_error) {
 }
 
 $user_id = $_SESSION['user_id']; // Assuming you have user_id in the session
-    $isAdminSql = "SELECT IsAdmin FROM users WHERE id = '$user_id'";
-    $queryRes= $conn->query($isAdminSql);
+$isAdminSql = "SELECT IsAdmin FROM users WHERE id = '$user_id'";
+$queryRes = $conn->query($isAdminSql);
 
-    if ($queryRes && $queryRes->num_rows > 0) {
-        $row = $queryRes->fetch_assoc();
-        $is_admin = $row['IsAdmin'];
+if ($queryRes && $queryRes->num_rows > 0) {
+    $row = $queryRes->fetch_assoc();
+    $is_admin = $row['IsAdmin'];
 
-        // If the user is admin, display the "update info" button
-        if ($is_admin != 1) {
-            $update_info_button = 'style="display:none"';
-        } else {
-            $update_info_button = ''; // If not admin, don't show the button
-        }
+    // If the user is admin, display the "update info" button
+    if ($is_admin != 1) {
+        $update_info_button = 'style="display:none"';
     } else {
-        // Failed to fetch user data
-        $update_info_button = 'style="display:none"'; // Don't show the button
+        $update_info_button = ''; // If not admin, don't show the button
     }
+} else {
+    // Failed to fetch user data
+    $update_info_button = 'style="display:none"'; // Don't show the button
+}
 
-    $conn->close();
+$conn->close();
 
 ?>
 <!DOCTYPE html>
@@ -73,7 +74,15 @@ $user_id = $_SESSION['user_id']; // Assuming you have user_id in the session
                     <li><a href="footage.php">Footage</a></li>
                     <li><a href="tours.php">Tours</a></li>
                     <li><a href="contact.php">Contact</a></li>
-                    <li><a href="sign_in.php">Sign In</a></li>
+                    <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true): ?>
+                        <li><a href="#">
+                                <?php echo $_SESSION['user_name']; ?>
+                            </a></li>
+                        <li><a href="logout.php">Logout</a></li>
+                    <?php else: ?>
+                        <li><a href="sign_in.php">Sign In</a></li>
+                        <li><a href="sign_up.php">Sign Up</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
             <div class="ham-menu">
@@ -103,13 +112,13 @@ $user_id = $_SESSION['user_id']; // Assuming you have user_id in the session
                     <?php echo $description; ?>
                 </p>
                 <br />
-                <a <?php echo $update_info_button  ?> class="input-info btn btn-get update-button" href="update-sights-description.php?
+                <a <?php echo $update_info_button ?> class="input-info btn btn-get update-button" href="update-sights-description.php?
                 name=<?php echo urlencode($name); ?>&
                 id=<?php echo urlencode($id); ?>&
                 info=<?php echo urlencode($info); ?>&
                 description=<?php echo urlencode($description); ?>&
                 imageUrl=<?php echo urlencode($imageUrl); ?>">
-                    <span >Update info</span>
+                    <span>Update info</span>
                 </a>
             </div>
         </section>
