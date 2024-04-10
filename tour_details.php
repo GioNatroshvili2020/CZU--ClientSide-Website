@@ -132,6 +132,7 @@ if (isset($_GET['id'])) {
             <div class="txt-position">
                 <p class="input-info"><?php echo $description; ?></p>
                 <br />
+                <?php echo $is_admin?>
                 <a  <?php echo $update_info_button  ?> class="input-info btn btn-get update-button" href="update-tours-description.php?name=<?php echo urlencode($name); ?>&id=<?php echo urlencode($id); ?>&info=<?php echo urlencode($info); ?>&description=<?php echo urlencode($description); ?>&imageUrl=<?php echo urlencode($imageUrl); ?>&price=<?php echo urlencode($price); ?>&duration=<?php echo urlencode($duration); ?>"><span>Update info</span></a>
             </div>
         </section>
