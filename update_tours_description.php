@@ -108,13 +108,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $sql = "UPDATE Tours SET  duration = '$duration', price = '$price',description = '$description' WHERE id = $id";
-    echo $sql;
-    // if ($connection->query($sql) === TRUE) {
-    //     header("Location: tours.php");
-    //     exit;
-    // } else {
-    //     echo "Error updating record: " . $connection->error;
-    // }
+    if ($connection->query($sql) === TRUE) {
+        header("Location: tours.php");
+        exit;
+    } else {
+        echo "Error updating record: " . $connection->error;
+    }
 
     // Close connection
     $connection->close();
