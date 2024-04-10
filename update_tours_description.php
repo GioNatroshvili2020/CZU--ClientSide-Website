@@ -70,9 +70,9 @@ $sectionId = "section" . $id;
             </div>
             <div class="txt-position">
                 <form action="" method="post">
-                    <input class="real-input" type="number" name="duration" value="<?php echo htmlspecialchars($duration) ?>">
+                    <input class="real-input" name="duration" value="<?php echo htmlspecialchars($duration) ?>">
                     <br />
-                    <input class="real-input" type="number" name="price" value="<?php echo htmlspecialchars($price) ?>">
+                    <input class="real-input"  name="price" value="<?php echo htmlspecialchars($price) ?>">
                     <br />
                     <textarea class="textarea-info" name="description">
                         <?php echo htmlspecialchars($description); ?>
