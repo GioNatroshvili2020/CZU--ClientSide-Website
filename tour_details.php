@@ -19,25 +19,29 @@ if (isset($_GET['id'])) {
     $stmt->execute();
     $result = $stmt->get_result();
     $update_info_button = 'style="display:none"';
-    // if ($result && $result->num_rows > 0) {
-    //     $row = $result->fetch_assoc();
-    //     $is_admin = $row['IsAdmin'];
-
-    //     // If the user is admin, display the "update info" button
-    //     if ($is_admin != 1) {
-    //         $update_info_button = 'style="display:none"';
-    //     } else {
-    //         $update_info_button = ''; // If not admin, don't show the button
-    //     }
-    // } else {
-    //     // Failed to fetch user data
-    //     $update_info_button = 'style="display:none"'; // Don't show the button
-    // }
 
 
     $user_id = $_SESSION['user_id']; // Assuming you have user_id in the session
     $isAdminSql = "SELECT IsAdmin FROM Users WHERE id = '$user_id'";
     $queryRes= $conn->query($isAdminSql);
+
+    if ($queryRes && $queryRes->num_rows > 0) {
+        $row = $queryRes->fetch_assoc();
+        $is_admin = $row['IsAdmin'];
+
+        // If the user is admin, display the "update info" button
+        if ($is_admin != 1) {
+            $update_info_button = 'style="display:none"';
+        } else {
+            $update_info_button = ''; // If not admin, don't show the button
+        }
+    } else {
+        // Failed to fetch user data
+        $update_info_button = 'style="display:none"'; // Don't show the button
+    }
+
+
+
     if ($result->num_rows > 0) {
         // Tour data found, fetch and display it
         $row = $result->fetch_assoc();
