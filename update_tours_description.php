@@ -96,7 +96,8 @@ ini_set('error_log', 'error.log');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id = $_GET['id'];
-    $info = $_POST['info'];
+    $duration = $_POST['duration'];
+    $price = $_POST['price'];
     $description = $_POST['description'];
 
     include_once 'config.php';
