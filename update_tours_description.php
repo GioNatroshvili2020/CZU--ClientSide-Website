@@ -70,7 +70,9 @@ $sectionId = "section" . $id;
             </div>
             <div class="txt-position">
                 <form action="" method="post">
-                    <input class="real-input" type="text" name="info" value="<?php echo htmlspecialchars($info) ?>">
+                    <input class="real-input" type="text" name="duration" value="<?php echo htmlspecialchars($duration) ?>">
+                    <br />
+                    <input class="real-input" type="text" name="price" value="<?php echo htmlspecialchars($price) ?>">
                     <br />
                     <textarea class="textarea-info" name="description">
                         <?php echo htmlspecialchars($description); ?>
@@ -105,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $connection->connect_error);
     }
 
-    $sql = "UPDATE Tours SET  description = '$description' WHERE id = $id";
+    $sql = "UPDATE Tours SET  duration = '$duration', price = '$price',description = '$description' WHERE id = $id";
     if ($connection->query($sql) === TRUE) {
         header("Location: tours.php");
         exit;
