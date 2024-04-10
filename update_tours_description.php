@@ -72,7 +72,7 @@ $sectionId = "section" . $id;
                 <form action="" method="post">
                     <input class="real-input" name="duration" value="<?php echo htmlspecialchars($duration) ?>">
                     <br />
-                    <input class="real-input"  name="price" value="<?php echo htmlspecialchars($price) ?>">
+                    <input class="real-input" name="price" value="<?php echo htmlspecialchars($price) ?>">
                     <br />
                     <textarea class="textarea-info" name="description">
                         <?php echo htmlspecialchars($description); ?>
@@ -107,12 +107,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $sql = "UPDATE Tours SET  duration = '$duration', price = '$price',description = '$description' WHERE id = $id";
-    if ($connection->query($sql) === TRUE) {
-        header("Location: tours.php");
-        exit;
-    } else {
-        echo "Error updating record: " . $connection->error;
-    }
+    echo $sql;
+    // if ($connection->query($sql) === TRUE) {
+    //     header("Location: tours.php");
+    //     exit;
+    // } else {
+    //     echo "Error updating record: " . $connection->error;
+    // }
 
     // Close connection
     $connection->close();
